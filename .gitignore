@@ -2,8 +2,5 @@
 config/*
 .htaccess
 cache/*
-!cache/.gitignore
 files/*
-!files/.gitignore
 images/*
-!images/.gitignore
