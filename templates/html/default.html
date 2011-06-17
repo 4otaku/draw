@@ -1,9 +1,6 @@
 {% extends "html/base.html" %}
 
 {% block content %}
-	<td valign="top" id="sidebar">
-		{% include 'html/common/sidebar.html' %}
-	</td>
 	<td valign="top" id="content">
 		{% if sub.description.template %}
 			{% include ['html/description/',sub.description.template,'.html']|join %}
