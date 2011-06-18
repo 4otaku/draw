@@ -1,0 +1,26 @@
+{% if flag.mode == 'edit' %}
+
+	<div style="margin:3%;">
+		Заполните пожалуйста все поля: <br /><br />
+
+		<form action="/admin/edit_painter_theme/{{flag.id}}/" method="post">
+			{% for field, value in items %}
+				<div class="clear margin10">
+					{{field}}: <input type="text" value="{{value}}" name="field_{{field}}" />
+				</div>
+			{% endfor %}
+			<input type="hidden" name="item_id" value="{{flag.id}}">
+			<input type="hidden" name="module" value="admin">
+			<input type="hidden" name="function" value="edit_painter_theme">	
+			<input type="submit" value="Редактировать">
+		</form>
+	</div>
+{% else %}
+	<div style="margin:3%;">
+		{% for id, name in items %}
+			<div class="clear margin10">
+				<a href="/admin/edit_painter_theme/{{id}}/">{{name}}</a>
+			</div>
+		{% endfor %}
+	</div>	
+{% endif %}

@@ -1,0 +1,7 @@
+{% extends "html/base.html" %}
+
+{% block content %}
+	<td valign="top" id="content">		
+		{% include ['html/admin/',flag.display,'.html']|join %}
+	</td>
+{% endblock %}

@@ -1,0 +1,14 @@
+<div style="margin:3%;">
+	Заполните пожалуйста все поля: <br /><br />
+
+	<form action="/admin/edit_painter_theme/" method="post">
+		{% for field in items %}
+			<div class="clear margin10">
+				{{field}}: <input type="text" value="" name="field_{{field}}" />
+			</div>
+		{% endfor %}
+		<input type="hidden" name="module" value="admin">
+		<input type="hidden" name="function" value="add_painter_theme">	
+		<input type="submit" value="Добавить">
+	</form>
+</div>

@@ -22,10 +22,12 @@
 					</select>
 				</div>
 				<div class="clear margin10">
-					Тема оформления: 
+					Тема оформления: 					
 					<select name="theme">
-						<option value="default">Стандартная</option>
-					</select>
+						{% for id, name in items.themes %}
+							<option value="{{id}}">{{name}}</option>
+						{% endfor %}
+					</select>					
 				</div>
 				<div class="clear margin10">	
 					Ширина картинки: <input type="text" name="with" value="300" size="5"> 
