@@ -1,26 +1,35 @@
-<html>
-<head>
-<title>Shi-Painter</title>
+{% extends "html/base.html" %}
+
+{% block content %}
 <script language="javascript" type="text/javascript" src="/templates/javascript/spainter.js"></script>
-</head>
-<body>
-<applet code="c.ShiPainter.class" name="paintbbs" archive="/templates/java/spainter/pro.jar,/templates/java/spainter/pro.zip" WIDTH="100%" height="100%">
-<param name="image_width" value="300">
-<param name="image_height" value="300">
 
-<param name="dir_resource" value="/templates/java/spainter/">
-<param name="tt.zip" value="/templates/java/spainter/tt.zip">
-<param name="res.zip" value="/templates/java/spainter/res_pro.zip">
-<param name="tools" value="pro">
-<param name="layer_count" value="3">
+{% if flag.pro %}
+	<applet code="c.ShiPainter.class" name="paintbbs" archive="/templates/java/spainter/pro.jar,/templates/java/spainter/pro.zip" width="100%" height="100%">
+{% else %}	
+	<applet code="c.ShiPainter.class" name="paintbbs" archive="/templates/java/spainter/all.jar" width="100%" height="100%">
+{% endif %}
 
-<param name="quality" value="2">
+	<param name="image_width" value="{{items.width}}" />
+	<param name="image_height" value="{{items.height}}" />
 
-{% for name, value in items.theme %}
-	<param name="{{name}}" value="{{value}}" />
-{% endfor %}
+	<param name="dir_resource" value="/templates/java/spainter/" />
+	
+	{% if flag.pro %}
+		<param name="tt.zip" value="/templates/java/spainter/tt.zip" />
+		<param name="res.zip" value="/templates/java/spainter/res_pro.zip" />
+		<param name="tools" value="pro" />
+		<param name="quality" value="2" />
+	{% else %}
+		<param name="tt.zip" value="/templates/java/spainter/tt_def.zip" />
+		<param name="res.zip" value="/templates/java/spainter/res.zip" />
+		<param name="tools" value="normal" />
+	{% endif %}
+
+	<param name="layer_count" value="{{items.layer_count}}" />
+
+	{% for name, value in items.theme %}
+		<param name="{{name}}" value="{{value}}" />
+	{% endfor %}
 
 </applet>
-
-</body>
-</html>
+{% endblock %}
