@@ -1,0 +1,16 @@
+{% if items.name %}
+	Добро пожаловать, {items.name}! 
+	<a href="#" class="disabled logout">
+		Выйти
+	</a>.
+{% else %}	
+	Вы не представлись системе. Вы можете нарисовать, и ваше изображение 
+	будет помещено в общую анонимную галерею. <br />
+	Если же вы хотите рисовать в личную галерею, вам необходимо 
+	<a href="login" class="disabled login_trigger">
+		залогиниться
+	</a> или 
+	<a href="register" class="disabled login_trigger">
+		зарегистрироваться
+	</a>.
+{% endif %}

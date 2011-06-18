@@ -14,7 +14,7 @@ table.body {
 
 table.body a {
 	color: #42A3B9;
-	cursor:pointer;
+	cursor: pointer;
 	text-decoration: underline;
 }
 
@@ -49,7 +49,7 @@ img.cancel {
 	position: relative;
 	bottom: 9px;
 	left: 9px;
-	cursor:pointer;	
+	cursor: pointer;	
 }
 
 .left  {
@@ -114,32 +114,32 @@ input, textarea {
     -moz-border-radius: 0.5em !important;
 	-webkit-border-radius: 0.5em !important;
 	border-radius: 0.5em !important;
-    background-color:#efefef ;
-    border:1px solid #CCCCCC !important;
-    border-bottom:1px solid #eee !important;
-    border-right:1px solid #eee !important;
-    padding:3px 3px 3px 3px !important; 
+    background-color: #efefef ;
+    border: 1px solid #CCCCCC !important;
+    border-bottom: 1px solid #eee !important;
+    border-right: 1px solid #eee !important;
+    padding: 3px 3px 3px 3px !important; 
 }
 
 button, input {
-    background-color:#FFFFFF !important;
-    text-decoration:none !important;
-    font-weight:bold !important; 
-    color:#565656 !important;
-    cursor:pointer !important;
-    padding:3px 3px 3px 3px !important; 
+    background-color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-weight: bold !important; 
+    color: #565656 !important;
+    cursor: pointer !important;
+    padding: 3px 3px 3px 3px !important; 
 }
 
 textarea {
-    background-color:#FFFFFF !important;
-    cursor:pointer !important;
-    padding:3px 3px 3px 3px !important; 
+    background-color: #FFFFFF !important;
+    cursor: pointer !important;
+    padding: 3px 3px 3px 3px !important; 
 }
 
-input:hover, input:focus, button:hover, button:focus, textarea:hover, textarea:focus {
-    background-color:#efefef !important ;
-    border:1px solid #CCCCCC !important;
-    color:#565656 !important;
+input: hover, input: focus, button: hover, button: focus, textarea: hover, textarea: focus {
+    background-color: #efefef !important ;
+    border: 1px solid #CCCCCC !important;
+    color: #565656 !important;
 
 }
 
@@ -164,11 +164,25 @@ div.mini-shell div.text {
 }
 
 .clickable {
-	cursor:pointer !important;
+	cursor: pointer !important;
 }
 
 /* Главная страница */
 
-.start_drawing {
+.start_drawing_container {
+	width: 100%;
+	text-align: center; 
+}
 
+.start_drawing {
+	text-align: left; 
+	width: 300px;
+	margin-left: auto ;
+	margin-right: auto ;
+}
+
+.loginform {
+	width: 900px;
+	margin-left: auto ;
+	margin-right: auto ;
 }
