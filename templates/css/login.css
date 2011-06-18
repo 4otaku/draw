@@ -1,0 +1,169 @@
+/* Overlay */
+
+#form-overlay {
+	background-color: #000;
+	cursor: wait;
+}
+
+/* Container */
+
+#form-container {
+	font:  16px/22px 'Trebuchet MS', Verdana, Arial;
+	text-align: left;
+	width: 450px;
+}
+
+#form-container .contact-content {
+	background-color: #333;
+	color: #ddd;
+	height: 40px;
+}
+
+#form-container h1 {
+	color: #d76300;
+	font-size: 20px;
+	line-height: 20px;
+	margin: 0;
+	padding: 0 0 6px 12px;
+	text-align: left;
+}
+
+#form-container .contact-loading {
+	background: url(/templates/images/loading.gif) no-repeat;
+	height: 55px;
+	margin: -14px 0 0 190px;
+	padding: 0;
+	position: absolute;
+	width: 54px;
+	z-index: 8000;
+}
+
+#form-container .contact-message {
+	text-align: center;
+}
+
+#form-container .contact-error {
+	background: #000;
+	border: 2px solid #ccc;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 18px;
+	margin: 0 auto;
+	padding: 2px;
+	width: 92%;
+}
+
+#form-container br {
+	clear: both;
+}
+
+#form-container form {
+	margin: 0;
+	padding: 0;
+}
+
+#form-container label {
+	clear: left;
+	display: block;
+	float: left;
+	font-weight: bold;
+	padding-right: 4px;
+	text-align: right;
+	width: 100px;
+}
+
+#form-container .contact-input {
+	background: #eee;
+	border: 1px solid #fff;
+	font-family: 'Trebuchet MS', Verdana, Arial;
+	float: left;
+	padding: 2px;
+	margin: 2px;
+	width: 300px;
+}
+
+#form-container textarea {
+	height: 114px;
+}
+
+#form-container .contact-cc {
+	cursor: default;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+#form-container .contact-top {
+	background-color: #333;
+	height: 13px;
+	margin: 0;
+	padding: 0;
+	-webkit-border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	-moz-border-radius-topright: 8px;
+	border-radius: 8px 8px 0 0;
+}
+
+#form-container .contact-bottom {
+	background-color: #333;
+	font-size: 12px;
+	height: 13px;
+	line-height: 12px;
+	text-align: center;
+	-webkit-border-bottom-right-radius: 8px;
+	-webkit-border-bottom-left-radius: 8px;
+	-moz-border-radius-bottomright: 8px;
+	-moz-border-radius-bottomleft: 8px;
+	border-radius: 0 0 8px 8px;
+}
+
+#form-container .contact-bottom a,
+#form-container .contact-bottom a: link,
+#form-container .contact-bottom a: active,
+#form-container .contact-bottom a: visited {
+	color: #666;
+	position: relative;
+	top: -4px;
+	text-decoration: none;
+}
+
+#form-container .contact-bottom a: hover {
+	color: #888;
+}
+
+#form-container .contact-button {
+	background: #d76300;
+	border: 0;
+	color: #fff;
+	cursor: pointer;
+	font-size: 16px;
+	font-weight: bold;
+	height: 26px;
+	margin: 4px 0 0 4px;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#form-container .contact-button: hover {
+	background: #f49000;
+}
+
+#form-container a.modal-close,
+#form-container a.modal-close: link,
+#form-container a.modal-close: active,
+#form-container a.modal-close: visited {
+	color: #999;
+	font-size: 18px;
+	font-weight: bold;
+	position: absolute;
+	text-decoration: none;
+	right: 8px;
+	top: 0px;
+}
+
+#form-container a.modal-close: hover {
+	color: #ccc;
+}

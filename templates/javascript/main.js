@@ -31,18 +31,6 @@ $(".config_option input, .config_option select").live(
 	}
 );
 
-$(".logout").live('click', function() { 
-	$.cookie('beta_settings', null, {path: '/', domain: window.location.hostname});
-	$.cookie('beta_settings', null, {path: '/', domain: '.'+window.location.hostname});
-	document.location.reload();
-});
-
-$(".login_trigger").live('click', function() { 
-	$(this).addClass("plaintext");
-	$(".login_trigger").not(this).removeClass("plaintext");
-	$(".login_part").show().not("."+$(this).attr('href')).hide();
-});
-
 $(".loginform").ready(function(){   
     $(".loginform").load('/profile/');
 });

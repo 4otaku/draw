@@ -1,3 +1,6 @@
+<style src="/templates/minify/index.php?b=templates/css&f=login.css&ver=1"></style>
+<script type="text/javascript" src="/templates/minify/index.php?b=templates/javascript&f=login.js&ver=1"></script>
+
 {% if items.name %}
 	Добро пожаловать, {items.name}! 
 	<a href="#" class="disabled logout">
@@ -7,10 +10,10 @@
 	Вы не представлись системе. Вы можете нарисовать, и ваше изображение 
 	будет помещено в общую анонимную галерею. <br />
 	Если же вы хотите рисовать в личную галерею, вам необходимо 
-	<a href="login" class="disabled login_trigger">
+	<a href="login" class="disabled login">
 		залогиниться
 	</a> или 
-	<a href="register" class="disabled login_trigger">
+	<a href="register" class="disabled register">
 		зарегистрироваться
 	</a>.
 {% endif %}
