@@ -201,6 +201,11 @@ div.mini-shell div.text {
 	background: url(/images/hline.gif) repeat-x; 	
 }
 
+#footer .right div {
+	text-align: center;
+	width: 150px;
+}
+
 /* Главная страница */
 
 .start_drawing_container {
@@ -216,7 +221,7 @@ div.mini-shell div.text {
 }
 
 .loginform {
-	width: 900px;
+	width: 700px;
 	margin-left: auto ;
 	margin-right: auto ;
 }
@@ -246,8 +251,8 @@ div.mini-shell div.text {
 }
 
 .small_thumbnail {
-	width: 180px;
-	height: 180px;
+	width: 220px;
+	height: 220px;
 }
 
 .large_extractor_thumbnail {

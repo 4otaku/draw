@@ -8,20 +8,20 @@
 		<img class="right" src="/templates/images/koishich.png" /> 
 	</div> 		
 	<div class="start_drawing_container">	
-		<div class="loginform">
+		<div class="loginform margin10">
 			Пожалуйста, подождите. 
 			<img src="/templates/images/loading.gif" />
 		</div>
 		<div class="start_drawing">	
 			<form enctype="multipart/form-data" method="post" action="/draw/">				
-				<div class="clear margin10">
+				<div class="margin10">
 					Редактор: 
 					<select name="mode">
 						<option value="shi_painter">Shi Painter</option>
 						<option value="shi_painter_pro">Shi Painter Pro</option>
 					</select>
 				</div>
-				<div class="clear margin10">
+				<div class="margin10">
 					Тема оформления: 					
 					<select name="theme">
 						{% for id, name in items.themes %}
@@ -29,10 +29,10 @@
 						{% endfor %}
 					</select>					
 				</div>
-				<div class="clear margin10">	
+				<div class="margin10">	
 					Ширина картинки: <input type="text" name="width" value="300" size="5"> 
 				</div>
-				<div class="clear margin10">
+				<div class="margin10">
 					Высота картинки: <input type="text" name="height" value="300" size="5"> 
 				</div>
 				<input type="submit" value="Начать рисовать">
