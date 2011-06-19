@@ -232,6 +232,36 @@ div.mini-shell div.text {
 	min-height: 100%;
 }
 
+h2{
+	font-size: 14pt;
+	font-weight: normal; 	
+	margin-top: 5px;
+}
+
+.wrapper {
+	clear: both;
+	padding-top: 5px; 
+	line-height: 14pt;	
+}
+
+.meta {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 90%;
+	border-top: 1px dashed #ccc;
+}
+
+.shell {	
+	border: 1px solid #E7E7E7;
+	padding: 5px;
+	margin-bottom: 25px;
+}
+
+.index_block {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
 /* Галереи с артом */
 
 .art_body {
@@ -246,13 +276,13 @@ div.mini-shell div.text {
 }
 
 .large_thumbnail {
-	width: 260px;
-	height: 260px;
+	width: 220px;
+	height: 220px;
 }
 
 .small_thumbnail {
-	width: 220px;
-	height: 220px;
+	width: 120px;
+	height: 120px;
 }
 
 .large_extractor_thumbnail {

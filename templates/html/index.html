@@ -7,7 +7,7 @@
 		</a> 
 		<img class="right" src="/templates/images/koishich.png" /> 
 	</div> 		
-	<div class="start_drawing_container">	
+	<div class="start_drawing_container margin20">	
 		<div class="loginform margin10">
 			Пожалуйста, подождите. 
 			<img src="/templates/images/loading.gif" />
@@ -42,5 +42,27 @@
 {% endblock %}
 
 {% block content %}
-
+	<div class="index_block">
+	<h2>Последние пополнения:</h2>
+	{% for id, gallery in items.new %}
+		<hr />
+		<div class="clear">
+			<div class="clear margin10">
+				<a href="/gallery/author/{{gallery.user}}/">
+					{% if id == 0 %}
+						Общая галерея для гостей
+					{% else %}
+						Галерея художника {{gallery.user}}
+					{% endif %}
+				</a>
+			</div>
+			{% for image in gallery.images %}
+				<div class="thumbnail small_thumbnail">
+					<img src="/images/gallery/{{id}}/thumbnail/{{image}}.jpg" />
+				</div>
+			{% endfor %}
+			&nbsp;
+		</div>
+	{% endfor %}
+	</div>
 {% endblock %}

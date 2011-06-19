@@ -42,6 +42,7 @@ class Upload_Input extends Input implements Plugins
 				),
 				$resized_settings['compression']
 			);
+			$image = new Transform_Image($save_resized);
 		}
 		
 		$image->target($save_large_thumbnail)->scale(
@@ -52,6 +53,7 @@ class Upload_Input extends Input implements Plugins
 			$large_thumbnail_settings['compression'],
 			true
 		);
+		$image = new Transform_Image($save_large_thumbnail);
 		
 		$image->target($save_thumbnail)->scale(
 			array(
