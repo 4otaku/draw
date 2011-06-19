@@ -12,7 +12,7 @@ class Upload_Input extends Input implements Plugins
 		$image_file = $this->get_temp_file($data['image']);		
 		$image = new Transform_Image($image_file);
 		
-		$format = $image->get_format();
+		$format = strtolower($image->get_format());
 		$time = time();
 		$save_full = IMAGES.SL.'gallery'.SL.$this->user_id.SL.'full'.SL.$time.'.'.$format;
 		$save_thumb = IMAGES.SL.'gallery'.SL.$this->user_id.SL.'thumb'.SL.$time.'.jpg';
