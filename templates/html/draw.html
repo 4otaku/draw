@@ -24,7 +24,12 @@
 		<param name="res.zip" value="/templates/java/spainter/res_normal.zip" />
 		<param name="tools" value="normal" />
 	{% endif %}
-
+	
+	<param name="url_save" value="/upload/?function=gallery" />
+	<param name="url_exit" value="/gallery/author/{{items.user_name}}/" />
+	<param name="send_header_timer" value="true" />
+	<param name="compress_level" value="0" />
+	
 	<param name="layer_count" value="3" />
 
 	{% for name, value in items.theme %}

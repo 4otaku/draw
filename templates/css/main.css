@@ -171,6 +171,36 @@ div.mini-shell div.text {
 	cursor: pointer !important;
 }
 
+/* Общее */
+
+#content {	
+	padding-left: 15px; 
+	padding-right: 15px;
+	border-left: 1px solid #E7E7E7;
+	border-right: 1px solid #E7E7E7;
+	line-height: 12pt;
+	min-height: 500px;
+}
+
+#sidebar {	
+	padding-left: 10px; 
+	line-height: 15pt;
+	width: 240px;
+}
+
+.art_body #sidebar {	
+	width: 220px;
+}
+
+#footer {	
+	height: 60px;
+	padding-left: 30px; 
+	padding-top: 10px; 
+	margin-top: 20px; 
+	border-top: 1px solid #E7E7E7;
+	background: url(/images/hline.gif) repeat-x; 	
+}
+
 /* Главная страница */
 
 .start_drawing_container {
@@ -195,4 +225,208 @@ div.mini-shell div.text {
 	width: 100%;
 	height: 100%;
 	min-height: 100%;
+}
+
+/* Галереи с артом */
+
+.art_body {
+	display: table-cell;
+}
+
+.thumbnail {
+  display: inline-block;
+  float: left;
+  text-align: center;
+  position: relative;
+}
+
+.large_thumbnail {
+	width: 260px;
+	height: 260px;
+}
+
+.small_thumbnail {
+	width: 180px;
+	height: 180px;
+}
+
+.large_extractor_thumbnail {
+	width: 260px;
+	height: 300px;
+}
+
+.small_extractor_thumbnail {
+	width: 180px;
+	height: 220px;
+}
+
+.booru_main {
+  text-align: center;
+}
+
+.art-bar {
+	text-align: left;
+	padding-left: 5px;	  
+}
+
+.art_translation {
+	position: absolute;
+	opacity: 0.5;
+	background: none repeat scroll 0 0 #EEEEFF;
+	border: 1px solid #000000;
+	cursor: pointer;
+}
+
+.art_translation_active {
+	position: absolute;
+	opacity: 0.9;
+	background: none repeat scroll 0 0 #EEEEFF;
+	border: 1px solid #000000;
+	cursor: move;
+	text-align: right;
+}
+
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0px; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0px; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0px; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0px; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+
+.edit_switch {
+	position: absolute;
+	cursor: pointer;	
+}
+
+.edit_translation {
+	position: absolute;
+}
+
+.image {
+    display: table;
+    display: inline-block;
+    position: relative;
+}
+
+.art_not_showed {
+	font-size: 90%;
+	text-align: left;
+	height: 100%;
+}
+
+.cg_name {
+	font-weight: bold;
+}
+
+.pack_description {
+	margin-left: 20px;
+}
+
+.similar_sign {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+}
+
+.loading_variation {
+	margin-left: 30px;
+	padding: 0px;
+    display: inline;
+	overflow: hidden;
+	height: 0px;
+}
+
+/* Навигация по страницам внизу */
+
+#navi_bottom ul, #navi_bottom li, #navi_bottom a, #navi_bottom span {
+	background: white;
+	padding: 0;
+	margin: 0;
+	border: none;
+	text-decoration: none;
+	font-weight: normal;
+	font-style: normal;
+	list-style: none;
+	text-transform: none;
+	text-indent: 0px;
+	font-variant: normal;
+	text-align: left;
+	line-height: 12px;
+	letter-spacing: 0px;
+	word-spacing: 0px;
+	font-size: 11px;
+	font-family: Arial;
+}
+
+#navi_bottom {
+	margin-top: 10px;
+	width: 100%;
+	background: white;
+	clear:both;
+	display:block;
+}
+
+#navi_bottom ul {
+	width: 100%;
+}
+
+#navi_bottom li {
+	float: left;
+	display: block;
+}
+
+#navi_bottom a, #navi_bottom span {
+	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-left: 2px;
+	margin-right: 2px;
+	display: block;
+	color: #333;
+	border: 1px solid #bfbfbf;
+}
+
+#navi_bottom li a:hover, #navi_bottom li span:hover {
+	border-color: #ff8000;
+}
+
+#navi_bottom li.space {
+	padding: 6px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#navi_bottom li.first_last_page {
+	font-style: italic;
+}
+
+#navi_bottom li.active_page a {
+	border-color: #46daff;
+}
+
+#navi_bottom li.active_page a:hover  {
+	color: black; /* IE fix */
+	text-decoration: underline;
+	border-color: #ff8000;
+}
+
+#navi_bottom li.page_info {
+	float: left;
+	display: block;
+	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-right: 2px;
+	color: #666;
+	font-size: 11px;
+	border: 1px solid #bfbfbf;
+}
+
+#navi_bottom div {
+	float: none; 
+	clear: both;
 }

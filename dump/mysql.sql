@@ -47,20 +47,21 @@ CREATE TABLE `<pr>tag_variants` (
 DROP TABLE IF EXISTS `<pr>art`;
 CREATE TABLE `<pr>art` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `md5` varchar(32) COLLATE utf8_general_ci NOT NULL,
+  `user_id` int(10) unsigned NOT NULL,
+  `name` varchar(32) NOT NULL,
   `width` smallint(5) unsigned NOT NULL,
   `height` smallint(5) unsigned NOT NULL,
   `weight` mediumint(8) unsigned NOT NULL,
   `resized` float unsigned NOT NULL,
-  `extension` varchar(6) COLLATE utf8_general_ci NOT NULL,
-  `thumbnail` varchar(32) COLLATE utf8_general_ci NOT NULL,
-  `meta` text COLLATE utf8_general_ci NOT NULL,
+  `extension` varchar(6) NOT NULL,
+  `meta` text NOT NULL,
   `comments` smallint(5) unsigned NOT NULL,
-  `description` text character set utf8 NOT NULL,
+  `description` text NOT NULL,
+  `timer` int(10) unsigned NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `area` enum('main','deleted') COLLATE utf8_general_ci NOT NULL,
+  `area` enum('main','deleted') NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `md5` (`md5`),
+  UNIQUE KEY `selector` (`user_id`,`date`),
   FULLTEXT KEY `index` (`meta`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=1 ;
 
@@ -185,3 +186,4 @@ CREATE TABLE IF NOT EXISTS `<pr>painter_themes` (
 ALTER TABLE  `<pr>painter_themes` ADD UNIQUE  `selector` (  `disabled` ,  `id` );
 
 INSERT INTO `<pr>painter_themes` (`id`, `name`, `disabled`, `pro_menu_color_text`, `pro_menu_color_off`, `pro_menu_color_off_hl`, `pro_menu_color_off_dk`, `pro_menu_color_on`, `pro_menu_color_on_hl`, `pro_menu_color_on_dk`, `bar_color_bk`, `bar_color_frame`, `bar_color_off`, `bar_color_off_hl`, `bar_color_off_dk`, `bar_color_on`, `bar_color_on_hl`, `bar_color_on_dk`, `bar_color_text`, `window_color_text`, `window_color_frame`, `window_color_bk`, `window_color_bar`, `window_color_bar_hl`, `window_color_bar_text`, `dlg_color_bk`, `dlg_color_text`, `color_bk`, `color_bk2`, `l_m_color`, `l_m_color_text`, `color_text`, `color_icon`, `color_frame`, `color_iconselect`, `color_bar`, `color_bar_hl`, `color_bar_shadow`, `tool_color_bk`, `tool_color_button`, `tool_color_button_hl`, `tool_color_button_dk`, `tool_color_button2`, `tool_color_text`, `tool_color_bar`, `tool_color_frame`) VALUES ('1', 'Стандартная', '0', '#FFFFFF', '#222233', '#333344', '0', '#ff0000', '#ff8888', '#660000', '#00ffff', '#ff0000', '#ffffff', '#ffffff', '#888888', '#aaaaaa', '#aaaaaa', '#aaaaaa', '0xff0000', '#ff0000', '#ffff00', '#000000', '#777777', '#888888', '#000000', '#ccccff', '0', '#FFFF0', '#FF00FF', '#ffffff', '#0000ff', '0', '#0FFFF', '0xff', '#112233', '0', '#665544', '#778899', '#aabbcc', '#ddeeff', '#9900ff', '#ff0099', '#ffffff', '0', '#00ff00', '#ff0000');
+INSERT INTO `<pr>user` (`id`, `username`, `password`, `email`, `cookie`, `rights`) VALUES ('0', 'anonymous', '---', '', '', '0');
