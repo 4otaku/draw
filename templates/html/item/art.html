@@ -1,0 +1,42 @@
+<div class="show_toggler">
+	<table width="100%">
+		<tr>
+			<td class="booru_main"> 				
+				{% if item.resized %}
+					<div class="clear margin20 mini-shell art-bar">
+						<a href="#" class="disabled art_size_toggle" rel="{{item.extension}}">
+							Показать в полном размере
+						</a> ({{item.width}}x{{item.height}}px; {{item.weight}} {{item.weight_type}}). 
+						<a href="#" class="disabled booru_show_full_always">
+							 Всегда показывать в полном размере
+						</a>. 
+						<a href="/download/art/{{id}}" target="_blank">
+							 Скачать
+						</a>.												
+					</div>								
+					<div class="art_toggle image">
+						<img src="{{domain}}/images/art/resized/{{item.md5}}.jpg">
+					</div>
+				{% endif %}
+				<div class="{% if item.resized %}hidden relative{% else %}image{% endif %} art_toggle">						
+					<img src="/images/gallery/{{flag.user_id}}/full/{{item.name}}.{{item.extension}}">
+				</div>
+			</td>
+		 </tr>
+		 <tr>
+			 <td>				
+				<div class="wrapper">
+					<p class="meta">
+						{% include 'html/common/meta.html' %}
+						{% if item.translation.translator %}
+							 | Переводчик: {{item.translation.translator}}
+						{% endif %}
+						{% if item.source %}
+							 | Источник: {{item.source}}
+						{% endif %}	
+					</p>
+				</div>
+			</td>
+		 </tr>		 
+	</table>
+</div>
