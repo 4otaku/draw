@@ -11,7 +11,7 @@ class Index_Output extends Output
 		
 		$latest = Database::get_table(
 			'art',
-			array('user_id', 'name'),
+			array('id', 'user_id', 'name'),
 			'area != "deleted" order by date desc limit 10'
 		);
 		
@@ -19,7 +19,10 @@ class Index_Output extends Output
 		
 		foreach ($latest as $art) {
 			
-			$galleries[$art['user_id']]['images'][] = $art['name'];
+			$galleries[$art['user_id']]['images'][] = array(
+				'id' => $art['id'],
+				'name' => $art['name'],
+			);
 			
 			if (count($galleries[$art['user_id']]['images']) > 4) {
 				break;

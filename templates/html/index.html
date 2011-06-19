@@ -58,7 +58,9 @@
 			</div>
 			{% for image in gallery.images %}
 				<div class="thumbnail small_thumbnail">
-					<img src="/images/gallery/{{id}}/thumbnail/{{image}}.jpg" />
+					<a href="/gallery/{{image.id}}/">
+						<img src="/images/gallery/{{id}}/thumbnail/{{image.name}}.jpg" />
+					</a>
 				</div>
 			{% endfor %}
 			&nbsp;
