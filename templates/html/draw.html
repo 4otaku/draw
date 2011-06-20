@@ -4,9 +4,21 @@
 <script language="javascript" type="text/javascript" src="/templates/javascript/spainter.js"></script>
 
 {% if flag.pro %}
-	<applet code="c.ShiPainter.class" name="paintbbs" archive="/templates/java/spainter/pro.jar,/templates/java/spainter/pro.zip" class="shi_painter">
+	<applet 
+		code="c.ShiPainter.class" 
+		name="paintbbs" 
+		archive="/templates/java/spainter/pro.jar,/templates/java/spainter/pro.zip" 
+		class="shi_painter"
+		style="height: 100%;"
+	>
 {% else %}	
-	<applet code="c.ShiPainter.class" name="paintbbs" archive="/templates/java/spainter/all.jar" class="shi_painter">
+	<applet 
+		code="c.ShiPainter.class" 
+		name="paintbbs" 
+		archive="/templates/java/spainter/all.jar" 
+		class="shi_painter"
+		style="height: 100%;"
+	>
 {% endif %}
 
 	<param name="image_width" value="{{items.width}}" />
