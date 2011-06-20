@@ -6,12 +6,8 @@ body {
 	min-width: 1006px;
 }
 
-*, document, html, body {
+document, html, body {
 	height: 100%;
-}
-
-body * { 
-	height: inherit; 
 }
 
 table {
