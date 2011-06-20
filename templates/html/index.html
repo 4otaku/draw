@@ -24,6 +24,7 @@
 				<div class="margin10">
 					Тема оформления: 					
 					<select name="theme">
+						<option value="0">Стандартная</option>
 						{% for id, name in items.themes %}
 							<option value="{{id}}">{{name}}</option>
 						{% endfor %}

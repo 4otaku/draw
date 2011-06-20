@@ -15,7 +15,9 @@ class Draw_Output extends Output implements Plugins
 	}
 	
 	protected function get_theme ($theme_id) {
-		$this->items['theme'] = Database::get_row('painter_themes', $theme_id);
+		if (!empty($theme_id)) {
+			$this->items['theme'] = Database::get_full_row('painter_themes', $theme_id);
+		}
 	}
 	
 	protected function get_user () {
