@@ -11,7 +11,7 @@ body {
 }
 
 body * { 
-	height: auto; 
+	height: inherit; 
 }
 
 table {
