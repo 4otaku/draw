@@ -7,7 +7,21 @@ body {
 }
 
 html, body {
-	height:100%;
+	height: 100%;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 1px;
+}
+
+img {
+	border: 1px;
+}
+
+input {
+	border: 1px;
+	padding: 3px;
 }
 
 table.body {	
@@ -25,18 +39,6 @@ table.body a {
 a.plaintext {
 	color: #000000 !important;
 	text-decoration: none;
-}
-
-p {
-	margin-top: 0px;
-}
-
-img {
-	border: none;
-}
-
-ul li {
-	list-style-type: none;
 }
 
 ul.plain_list {
@@ -464,4 +466,103 @@ h2{
 #navi_bottom div {
 	float: none; 
 	clear: both;
+}
+
+/* Вывод комментариев */
+
+#comments {
+	margin-left: 15px; 
+	margin-top: 20px; 
+}
+
+.commentsh2 {
+  font-size: 14pt; 	
+  font-weight: normal;
+  color: #42A3B9;
+  margin-top: 0px !important;
+  margin-bottom: 20px; 
+}
+
+a.comments {
+  margin-top: 5px; 
+  margin-bottom: 20px; 
+}
+
+.datetime {
+	color: Gray;
+	font-size: 9px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.commentmetadata {
+	font-size: 10px;
+}
+
+.comment {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.comment-top {
+	height: 23px;
+	background: #FFFAF0;
+	padding-left: 10px; 
+}
+
+.comment-content {		
+	padding-left: 10px; 
+	min-height: 50px;	
+	padding-top: 3px;	
+}
+
+.c-wrap {
+	clear: both;
+	padding-top: 20px; 	
+	border-bottom: 1px solid #DCDCDC;
+}
+
+.avatar-n {	
+	float: left;
+	width: 50px;
+	height: 50px;	
+	padding: 5px;
+	border: 1px solid Black;	
+	margin-right: 10px; 	 
+}
+
+.comment-text {	
+	margin-left: 75px; 	 
+}
+
+div.respond {
+	margin-left: 50px;
+}
+
+.quotation {
+	padding: 8px;
+	background-color: #EEEEEE;
+	border: 1px solid #777777;
+	margin: 5px;
+	margin-bottom: 15px;
+}
+
+.quotation .username {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.bbholder {
+	border: 2px solid #666;
+	margin-top: 3px;
+}
+
+img.bb {
+	background-color: #EEEEFF;
+	border: 1px solid #666;
+	margin: 0px !important;
+}
+
+.bbholder td {
+	padding: 0px !important;
 }

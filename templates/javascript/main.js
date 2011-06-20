@@ -39,4 +39,18 @@ $(document).ready(function(){
 	$(".checked").attr('checked', true);
 	$(".not_checked").attr('checked', false);
 	$("select .selected").attr('selected', 'selected');
+	
+	if ($("div#comments").length == 1) {
+		$("div#comments").load("/templates/ajax/comment_form.html", function(){
+			if (document.location.hash.indexOf("#reply-") == 0) {
+				var id = parseInt(document.location.hash.replace("#reply-",""));
+				if ($('#reply-'+id).length == 1) {
+					$('#reply-'+id).append($('#comments-field'));
+					$("#comment-parent").val(id);	
+					$("#comment-main").show();
+					$(".commentsh2").hide();
+				}
+			}
+		});
+	}	
 });

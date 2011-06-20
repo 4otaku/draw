@@ -208,7 +208,7 @@ class Comments_Output extends Output implements Plugins
 				$display
 			);
 		}
-		
+
 		$this->items[] = new Item_Comment_Navi(array(
 			'curr_page' => $page,
 			'pagecount' => ceil($total / $perpage),
