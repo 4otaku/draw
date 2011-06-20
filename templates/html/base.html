@@ -16,7 +16,9 @@
 	{% endblock %}
 	<table width="100%" class="body">
 		<tr>
-			{% block content %}{% endblock %}
+			<td>
+				{% block content %}{% endblock %}
+			<td>
 		</tr>
 		{% if sub.footer %}
 			{% include 'html/common/footer.html' %}
