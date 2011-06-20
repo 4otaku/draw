@@ -180,3 +180,4 @@ $(document).ready(function(){
 	forms.init('register');
 
 });
+

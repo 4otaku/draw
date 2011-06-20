@@ -21,12 +21,12 @@ $(".config_option input, .config_option select").live(
 		}
 		
 		$.ajax({data: {
-			module : 'profile',
-			input: true,
-			function: 'set_option',
-			option_name: $(this).attr('name'),
-			option_value: val,  
-			success: on_complete
+			'module' : 'profile',
+			'input': true,
+			'function': 'set_option',
+			'option_name': $(this).attr('name'),
+			'option_value': val,  
+			'success': on_complete
 		}});
 	}
 );
