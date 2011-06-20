@@ -6,12 +6,27 @@ class Draw_Output extends Output implements Plugins
 	public function main ($query) {
 		$vars = Globals::$vars;
 		
-		$this->get_theme($vars['theme']);
+		if (!empty($vars['theme'])) {
+			$this->get_theme($vars['theme']);
+		}
+		
 		$this->get_user();
 		
-		$this->flags['pro'] = ($vars['mode'] == 'shi_painter_pro');
-		$this->items['width'] = (int) $vars['width'];
-		$this->items['height'] = (int) $vars['height'];
+		if (!empty($vars['mode'])) {
+			$this->flags['pro'] = ($vars['mode'] == 'shi_painter_pro');
+		}
+		
+		if (!empty($vars['width'])) {
+			$this->items['width'] = (int) $vars['width'];
+		} else {
+			$this->items['width'] = Config::settings('default', 'width');
+		}
+		
+		if (!empty($vars['height'])) {
+			$this->items['height'] = (int) $vars['height'];
+		} else {
+			$this->items['height'] = Config::settings('default', 'height');
+		}
 	}
 	
 	protected function get_theme ($theme_id) {

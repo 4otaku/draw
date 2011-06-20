@@ -566,3 +566,15 @@ img.bb {
 .bbholder td {
 	padding: 0px !important;
 }
+
+/* 404-ая страница */
+
+#error {
+	text-align: center;
+	font-weight: bold;
+	color: red;
+}
+#error a {
+	text-decoration: underline;
+	cursor: pointer;
+}
