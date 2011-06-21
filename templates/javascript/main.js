@@ -4,7 +4,6 @@ $.ajaxSetup({
 	type: "POST",
 	cache: false,
 	data: {
-		ajax: true,
 		cookie: $.cookie('draw_settings')
 	}
 });
