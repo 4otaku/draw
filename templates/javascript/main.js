@@ -69,4 +69,12 @@ $(document).ready(function(){
 			$("input[name=item_id]").val(split_url[2]);
 		});
 	}
+	
+	$("a.reply").click(function(event){  
+		event.preventDefault();
+		$('#reply-'+$(this).attr('rel')).append($('#comments-form'));
+		$("#comment-parent").val($(this).attr('rel'));	
+		$("#comment-main").show();
+		$(".commentsh2").hide();
+	});		
 });

@@ -16,6 +16,15 @@ class Item_Comment extends Item_Abstract_Container implements Plugins
 				}
 				break;
 			case 'ladder':
+
+				if (!empty($this->parent)) {
+
+					$keys = array_keys($this->parent->data['items']);
+					$local_index = array_search($this->data['id'], $keys) + 1;
+					
+					$this->data['index'] = $this->parent->data['index'].'.'.$local_index;
+				}
+			
 				if (!empty($this->data['items'])) {
 					if (empty($this->parent)) {
 						$tree_length = 0;
