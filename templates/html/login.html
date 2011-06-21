@@ -1,5 +1,5 @@
-<style src="/templates/minify/index.php?b=templates/css&f=login.css&ver=1"></style>
-<script type="text/javascript" src="/templates/minify/index.php?b=templates/javascript&f=login.js&ver=1"></script>
+<link rel="stylesheet" href="/templates/minify/index.php?b=templates/css&f=login.css,box.css&ver=7" type="text/css" media="screen" />
+<script type="text/javascript" src="/templates/minify/index.php?b=templates/javascript&f=box.js,login.js&ver=1"></script>
 
 {% if items.name %}
 	Добро пожаловать, {items.name}! 
@@ -11,10 +11,18 @@
 	Вы можете нарисовать, и ваше изображение 
 	будет помещено в общую анонимную галерею. <br />
 	Если же вы хотите рисовать в личную галерею, вам необходимо <br />
-	<a href="login" class="disabled login">
+	<a 
+		href="/templates/ajax/login.html?width=600&height=600" 
+		class="thickbox"
+		title="Залогиниться"
+	>
 		залогиниться
 	</a> или 
-	<a href="register" class="disabled register">
+	<a 
+		href="/templates/ajax/register.html?width=600&height=600" 
+		class="thickbox"
+		title="Завести свою галерею"
+	>
 		зарегистрироваться
 	</a>.
 {% endif %}

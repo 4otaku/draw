@@ -25,7 +25,7 @@ input {
 }
 
 table.body {
-	background: url(/images/topbg.gif) repeat-x;
+	background: url(/templates/images/topbg.gif) repeat-x;
 	padding: 15px 0 0;
 }
 
@@ -199,7 +199,7 @@ div.mini-shell div.text {
 	padding-top: 10px;
 	margin-top: 20px;
 	border-top: 1px solid #E7E7E7;
-	background: url(/images/hline.gif) repeat-x;
+	background: url(/templates/images/hline.gif) repeat-x;
 }
 
 #footer .right div {
