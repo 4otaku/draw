@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="/templates/minify/index.php?b=templates/css&f=login.css,box.css&ver=7" type="text/css" media="screen" />
 <script type="text/javascript" src="/templates/minify/index.php?b=templates/javascript&f=box.js,login.js&ver=1"></script>
 
-{% if items.name %}
-	Добро пожаловать, {items.name}! 
+{% if items.id %}
+	Добро пожаловать, {{items.username}}! 
 	<a href="#" class="disabled logout">
 		Выйти
 	</a>.
@@ -12,14 +12,14 @@
 	будет помещено в общую анонимную галерею. <br />
 	Если же вы хотите рисовать в личную галерею, вам необходимо <br />
 	<a 
-		href="/templates/ajax/login.html?width=600&height=600" 
+		href="/templates/ajax/login.html?width=300&height=150" 
 		class="thickbox"
 		title="Залогиниться"
 	>
 		залогиниться
 	</a> или 
 	<a 
-		href="/templates/ajax/register.html?width=600&height=600" 
+		href="/templates/ajax/register.html?width=400&height=300" 
 		class="thickbox"
 		title="Завести свою галерею"
 	>

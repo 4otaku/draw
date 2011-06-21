@@ -36,6 +36,11 @@ class Draw_Output extends Output implements Plugins
 	}
 	
 	protected function get_user () {
-		$this->items['user_name'] = 'anonymous';
+		$username = Globals::user_info('username');
+		$this->items['user_name'] = Meta_Author::get_alias_by_name($username);
+
+		if (empty($this->items['user_name'])) {
+			$this->items['user_name'] = 'anonymous';
+		}
 	}
 }

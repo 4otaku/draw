@@ -4,17 +4,43 @@ $(".logout").live('click', function() {
 	document.location.reload();
 });
 
-$(document).ready(function(){		
-	$("a.thickbox").each(function(){
+$(document).ready(function(){	
 		
-		var link_href = $(this).attr('href');		
-		var parts = link_href.split('=');
-		var height = parseInt(parts[parts.length-1]);
-
-		if (height + 100 > $(window).height()) {
-			$(this).attr('href',link_href.replace('height='+height,'height='+($(window).height()-100)));
-		}
+	$('form.ajax-form').die("submit").live("submit", function() {
+		
+		var query = '/?'+$(this).serialize();
+		
+		$.get(query, function(data) {
+			
+			switch (data) {
+				case 'profile_incorrect_password':
+					$(".ajax-reply").html('Неправильный пароль.');
+					break;
+				case 'profile_no_such_user':
+					$(".ajax-reply").html('Пользователя с таким именем не существует.');
+					break;
+				case 'profile_passwords_dont_match':
+					$(".ajax-reply").html('Введенные пароли не совпадают.');
+					break;
+				case 'profile_password_too_short':
+					$(".ajax-reply").html('Слишком короткий пароль. минимальная длинна 6 символов.');
+					break;
+				case 'profile_login_too_short':
+					$(".ajax-reply").html('Слишком короткий логин. минимальная длинна 6 символов.');
+					break;
+				case 'profile_user_already_exists':
+					$(".ajax-reply").html('Пользователь с таким именем уже существует.');
+					break;
+				case 'profile_register_success':
+				case 'profile_login_success':
+					document.location.reload();
+					break;
+				default:
+					$(".ajax-reply").html('Неизвестная ошибка, напишите администратору.');
+					break;
+			}
+		});	
+		
+		return false;
 	});
-
 });
-
