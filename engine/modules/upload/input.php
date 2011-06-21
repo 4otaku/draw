@@ -66,11 +66,15 @@ class Upload_Input extends Input implements Plugins
 			),
 			$thumbnail_settings['compression'],
 			true
-		);
+		);		
 		
-		$username = empty($data['user']['info']['username']) ? 
-			'anonymous' :
-			$data['user']['info']['username'];
+		if(!empty($data['user']['info']['username'])) {
+			$username = Meta_Author::get_alias_by_name($data['user']['info']['username']);
+		}
+			
+		if (empty($username)) {
+			$username = 'anonymous';
+		}
 		
 		Art_Input::save($save_full, $username, $this->user_id, $data['timer']);
 		

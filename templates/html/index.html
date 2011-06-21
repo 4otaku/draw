@@ -49,9 +49,9 @@
 {% block content %}
 	<div class="index_block">
 	<h2>Последние пополнения:</h2>
-	{% for id, gallery in items.new %}
-		<hr />
+	{% for id, gallery in items.new %}	
 		<div class="clear">
+			<hr />
 			<div class="clear margin10">
 				<a href="/gallery/author/{{gallery.user}}/">
 					{% if id == 0 %}
