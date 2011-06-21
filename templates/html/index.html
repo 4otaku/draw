@@ -48,28 +48,38 @@
 
 {% block content %}
 	<div class="index_block">
-	<h2>Последние пополнения:</h2>
-	{% for id, gallery in items.new %}	
-		<div class="clear">
-			<hr />
-			<div class="clear margin10">
-				<a href="/gallery/author/{{gallery.link}}/">
-					{% if id == 0 %}
-						Общая галерея для гостей
-					{% else %}
-						Галерея художника {{gallery.username}}
-					{% endif %}
-				</a>
-			</div>
-			{% for image in gallery.images %}
-				<div class="thumbnail small_thumbnail">
-					<a href="/gallery/{{image.id}}/">
-						<img src="/images/gallery/{{id}}/thumbnail/{{image.name}}.jpg" />
+		<div class="margin10">
+			<h2><a href="/comments/">Последние комментарии</a>:</h2>
+		</div>
+		{% for id, item in items.comments %}	
+			{% include 'html/item/comment_block.html' %}
+		{% endfor %}
+	</div>
+	<div class="index_block">
+		<div class="margin10">
+			<h2>Последние пополнения:</h2>
+		</div>
+		{% for id, gallery in items.new %}	
+			<div class="clear">
+				<hr />
+				<div class="clear margin10">
+					<a href="/gallery/author/{{gallery.link}}/">
+						{% if id == 0 %}
+							Общая галерея для гостей
+						{% else %}
+							Галерея художника {{gallery.username}}
+						{% endif %}
 					</a>
 				</div>
-			{% endfor %}
-			&nbsp;
-		</div>
-	{% endfor %}
+				{% for image in gallery.images %}
+					<div class="thumbnail small_thumbnail">
+						<a href="/gallery/{{image.id}}/">
+							<img src="/images/gallery/{{id}}/thumbnail/{{image.name}}.jpg" />
+						</a>
+					</div>
+				{% endfor %}
+				&nbsp;
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}

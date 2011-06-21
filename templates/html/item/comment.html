@@ -3,11 +3,10 @@
 	id="comment-{{id}}"
 >
 	<div class="comment-top">
-		<b>{{item.index}}) {{item.username}}</b>
+		<b>{{utils.one_of(index,item.index)}}) {{item.username}}</b>
 		<span class="datetime">
 			 {{item.precise_date}}
-		</span>
-		<span class="commentmetadata"><a href="#comment-{{id}}" title="">#</a></span>
+		</span>		
 	</div>
 	<div class="comment-content">
 		<div class="avatar-n">
@@ -24,8 +23,10 @@
 				</blockquote>
 			{% endif %}			
 			<div class="margin10">{{item.text}}</div>
-			<a href="#" class="disabled reply" rel="{{id}}">Ответить</a>
-			<div id="reply-{{id}}"></div>
+			{% if not index %}
+				<a href="#" class="disabled reply" rel="{{id}}">Ответить</a>
+				<div id="reply-{{id}}"></div>
+			{% endif %}			
 			<div class="c-wrap"></div>
 		</div>
 	</div>	

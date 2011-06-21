@@ -1,7 +1,7 @@
 <div class="shell post">
 	<div class="left">
 		<h2>
-			<a href="/{{item.place}}/{{item.link}}/">
+			<a href="/gallery/{{item.link}}/">
 				{{item.title}}
 			</a>
 		</h2>
@@ -13,11 +13,20 @@
 	</div>
 	<table cellspacing="0" cellpadding="0" width="100%">
 		<tr>
+			{% if item.image %}
+				<td class="imageholder">
+					<div class="image-0">
+						<a href="/gallery/{{item.link}}/">
+							<img src="{{item.image}}" />
+						</a>
+					</div>
+				</td>
+			{% endif %}
 			<td valign="top">
 				{% if item.comments > item.limit %}
 					<p class="help">
 						Показываются только {{item.limit}} последних {{utils.wcase(item.limit, 'комментарий', 'комментария', 'комментариев')}}. 
-						<a href="/{{item.place}}/{{item.link}}/comments/all">
+						<a href="/gallery/{{item.link}}/comments/all">
 							Читать все
 						</a>.
 					</p>
@@ -29,21 +38,12 @@
 				{% endfor %}
 				<div class="respond">
 					<h2>
-						<a href="/{{item.place}}/{{item.link}}/">
+						<a href="/gallery/{{item.link}}/">
 							Ответить
 						</a>
 					</h2>
 				</div>
 			</td>
-			{% if item.image %}
-				<td class="imageholder">
-					<div class="image-0">
-						<a href="/{{item.place}}/{{item.link}}/">
-							<img src="{{domain}}{{item.image}}" />
-						</a>
-					</div>
-				</td>
-			{% endif %}
 		</tr>
 	</table>
 </div>

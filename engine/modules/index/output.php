@@ -3,12 +3,19 @@
 class Index_Output extends Output
 {
 	public function main ($query) {
+		
 		$this->items['themes'] = Database::get_vector(
 			'painter_themes',
 			array('id', 'name'),
 			'disabled = 0 order by id'
 		);
 		
+		$this->get_latest_art();
+		
+		$this->items['comments'] = Comments_Output::latest(5, 2);
+	}
+	
+	protected function get_latest_art () {	
 		$latest = Database::get_table(
 			'art',
 			array('id', 'user_id', 'name'),
@@ -24,10 +31,12 @@ class Index_Output extends Output
 				'name' => $art['name'],
 			);
 			
-			if (count($galleries[$art['user_id']]['images']) > 4) {
+			if (count($galleries[$art['user_id']]['images']) > 2) {
 				break;
 			}
 		}
+		
+		$galleries = array_slice($galleries, 0, 4, true);
 		
 		$users = Database::get_vector(
 			'user', 
@@ -41,7 +50,7 @@ class Index_Output extends Output
 			$galleries[$id]['link'] = empty($alias) ? $user : $alias;
 			$galleries[$id]['username'] = $user;
 		}
-		
+
 		$this->items['new'] = $galleries;
 	}
 }

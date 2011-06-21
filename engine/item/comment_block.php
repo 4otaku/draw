@@ -3,6 +3,7 @@
 class Item_Comment_Block extends Item_Abstract_Container implements Plugins
 {
 	protected $item_data = array();
+	protected $thumbnail_type = 'large_thumbnail';
 	
 	public function postprocess () {
 
@@ -37,30 +38,17 @@ class Item_Comment_Block extends Item_Abstract_Container implements Plugins
 		return 0;
 	}
 	
+	public function set_small_thumbnail () {
+		$this->thumbnail_type = 'thumbnail';
+	}
+	
 	public function get_image () {
 		switch ($this->data['place']) {
 			case 'art':
-				return '/images/art/thumbnail/'.$this->item_data['thumbnail'].'.jpg';
-			case 'post':
-				$image = Database::get_field(
-					'post_items', 
-					'data', 
-					'item_id = ? and `type` = ? and sort_number = ?', 
-					array($this->data['id'], 'image', 0)
-				);
-				
-				$image = Crypt::unpack($image);
-			
-				return '/images/post/thumbnail/'.$image['file'];
-			case 'video':
-				if (
-					!empty($this->item_data['object_thumbnail']) && 
-					$this->item_data['object_thumbnail'] != 'deleted'
-				) {
-					return '/images/video/thumbnail/'.$this->item_data['object_thumbnail'];
-				} else {
-					return '/i/novideo.jpg';
-				}
+				return '/images/gallery/'.
+						$this->item_data['user_id'].
+						'/'.$this->thumbnail_type.'/'.
+						$this->item_data['name'].'.jpg';
 			case 'news':
 				return '/images/news/thumbnail/'.$this->item_data['image'];
 			default:

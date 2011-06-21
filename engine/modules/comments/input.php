@@ -33,6 +33,8 @@ class Comments_Input extends Input implements Plugins
 		);
 
 		Database::insert('comment', $insert);
+		
+		Database::update($place, $item_id, array('comments' => '++'));
 
 		$this->redirect_address = $this->referer;
 	}

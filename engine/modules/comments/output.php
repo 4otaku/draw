@@ -2,9 +2,9 @@
 
 class Comments_Output extends Output implements Plugins
 {
-	public function main ($query) {
+	public function main ($query, $count = 0, $limit = 0) {
 
-		$perpage = Config::settings('per_page');
+		$perpage = empty($count) ? Config::settings('per_page') : $count;
 		$page = isset($query['page']) && $query['page'] > 0 ? $query['page'] : 1;
 		$start = ($page - 1) * $perpage;
 		
@@ -40,7 +40,9 @@ class Comments_Output extends Output implements Plugins
 			}
 			
 			$this->items[] = new Item_Comment_Block(array(
-				'limit' =>  Globals::user_settings('last_comments'),
+				'limit' =>  empty($limit) ? 
+								Globals::user_settings('last_comments') : 
+								$limit,
 				'place' => $item['place'],
 				'id' => $item['item_id'],
 				'items' => $item_comments,
@@ -50,44 +52,22 @@ class Comments_Output extends Output implements Plugins
 		$this->get_navi($query, Database::get_counter(), $page, $perpage);
 	}
 	
-	public function section ($query) {
-
-		$perpage = Config::settings('per_page');
-		$page = isset($query['page']) && $query['page'] > 0 ? $query['page'] : 1;
-		$start = ($page - 1) * $perpage;
+	public static function latest ($count, $limit) {
+		$worker = new Comments_Output ();		
 		
-		$params = array($query['section'], 'deleted');
-		$condition = "place = ? and area != ? group by place, item_id order by max(date) desc limit $start, $perpage";
-
-		$items = Database::set_counter()->
-			get_vector('comment', array('id', 'item_id'), $condition, $params);
-
-		$condition = "place = ? and area != ? and ".Database::array_in('item_id', $items)." order by date";
-		$params = array_merge($params, array_values($items));
+		$query = array();
+		$worker->main($query, $count, $limit);
 		
-		$comments = Database::get_full_vector('comment', $condition, $params);
-
-		foreach ($items as $item) {
-			$item_comments = array();
-			
-			foreach ($comments as $id => $comment) {
-				if ($comment['item_id'] == $item) {				
-					$item_comments[$id] = new Item_Comment(
-						$comment, 
-						Globals::user_settings('display')
-					);
-				}
+		foreach ($worker->items as $id => $item) {
+			if (!($item instanceOf Item_Comment_Block)) {
+				unset($worker->items[$id]);
+			} else {
+				$item->postprocess();
+				$item->set_small_thumbnail();
 			}
-			
-			$this->items[] = new Item_Comment_Block(array(
-				'limit' =>  Globals::user_settings('last_comments'),
-				'place' => $query['section'],
-				'id' => $item,
-				'items' => $item_comments,
-			));
 		}
 		
-		$this->get_navi($query, Database::get_counter(), $page, $perpage);
+		return $worker->items;
 	}
 	
 	protected function get_navi ($query, $count, $page, $perpage) {
