@@ -5,9 +5,13 @@ class Upload_Input extends Input implements Plugins
 	protected $user_id = 0;
 	
 	public function gallery ($query) {
-		$this->user_id = (int) Globals::user_info('id');
-		
 		$data = $this->parse_shi_paint(file_get_contents('php://input'));
+		
+		if (!empty($data['user']['info']['id'])) {
+			$this->user_id = $data['user']['info']['id'];
+		} else {
+			$this->user_id = 0;
+		}
 		
 		$image_file = $this->get_temp_file($data['image']);		
 		$image = new Transform_Image($image_file);
@@ -64,7 +68,11 @@ class Upload_Input extends Input implements Plugins
 			true
 		);
 		
-		Art_Input::save($this->user_id, $save_full, $data['timer']);
+		$username = empty($data['user']['info']['username']) ? 
+			'anonymous' :
+			$data['user']['info']['username'];
+		
+		Art_Input::save($save_full, $username, $this->user_id, $data['timer']);
 		
 		exit();
 	}
@@ -79,9 +87,13 @@ class Upload_Input extends Input implements Plugins
 		array_pop($headers);
 		
 		foreach ($headers as $header) {
-			list($name, $value) = preg_split('/=/', $header, 2);
-			
-			$return[$name] = $value;
+			if (preg_match('/^[a-z\d]{32}$/', $header)) {
+				$return['user'] = Cookie::get_preferences($header);
+			} else {
+				list($name, $value) = preg_split('/=/', $header, 2);
+						
+				$return[$name] = $value;
+			}
 		}
 		
 		$return['image'] = $image;

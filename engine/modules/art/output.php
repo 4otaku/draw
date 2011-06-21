@@ -4,7 +4,7 @@ class Art_Output extends Output_Main implements Plugins
 {
 	
 	public function single ($query) {
-		$this->get_user_id();
+		$this->get_user_id($query);
 		
 		$id = $query['id'];
 		$art = Database::get_full_row('art', $id);
@@ -22,7 +22,7 @@ class Art_Output extends Output_Main implements Plugins
 	}
 
 	public function get_content ($query, $perpage, $page, $start) {
-		$this->get_user_id();
+		$this->get_user_id($query);
 		
 		$listing_condition = $this->build_listing_condition($query);
 		$condition = $listing_condition . " order by date desc limit $start, $perpage";
@@ -46,7 +46,20 @@ class Art_Output extends Output_Main implements Plugins
 		return $return;
 	}
 	
-	protected function get_user_id () {
-		$this->flags['user_id'] = 0;
+	protected function get_user_id ($query) {
+		
+		if (!empty($query['id'])) {
+			$this->flags['user_id'] = Database::get_field('art', 'user_id', $query['id']);
+		}
+		
+		if (!empty($query['alias'])) {
+			$name = Database::get_field('meta', 'name', 'type="author" and alias = ?', $query['alias']);
+			
+			if (empty($name)) {
+				$name = $query['alias'];
+			}
+			
+			$this->flags['user_id'] = Database::get_field('user', 'id', 'username = ?', $name);
+		}		
 	}
 }

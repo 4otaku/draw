@@ -49,6 +49,7 @@
 	<param name="compress_level" value="0" />
 	
 	<param name="layer_count" value="3" />
+	<param name="send_header" value="{{items.cookie}}&" />
 
 	{% for name, value in items.theme %}
 		<param name="{{name}}" value="{{value}}" />

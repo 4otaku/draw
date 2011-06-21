@@ -27,6 +27,8 @@ class Draw_Output extends Output implements Plugins
 		} else {
 			$this->items['height'] = Config::settings('default', 'height');
 		}
+		
+		$this->items['cookie'] = Globals::$user_data['cookie'];
 	}
 	
 	protected function get_theme ($theme_id) {

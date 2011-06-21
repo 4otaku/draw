@@ -37,7 +37,8 @@ class Index_Output extends Output
 		);
 
 		foreach ($users as $id => $user) {
-			$galleries[$id]['user'] = $user;
+			$alias = Meta_Author::get_alias_by_name($user);
+			$galleries[$id]['user'] = empty($alias) ? $user : $alias;
 		}
 		
 		$this->items['new'] = $galleries;

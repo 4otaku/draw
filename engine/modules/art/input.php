@@ -2,7 +2,7 @@
 
 class Art_Input extends Input implements Plugins
 {
-	public static function save ($user_id, $filename, $timer = false) {
+	public static function save ($filename, $username, $user_id = 0, $timer = false) {
 		
 		$sizes = getimagesize($filename);
 		
@@ -13,18 +13,16 @@ class Art_Input extends Input implements Plugins
 			'weight' => filesize($filename),
 			'extension' => pathinfo($filename, PATHINFO_EXTENSION),
 			'timer' => (int) $timer,
-			'meta' => self::get_base_meta($user_id),
+			'meta' => self::get_base_meta($username),
 			'area' => 'main',
+			'user_id' => $user_id
 		);
 		
 		Database::insert('art', $insert);
 	}
 	
-	protected static function get_base_meta ($user_id) {
-		$user_id = (int) $user_id;
+	protected static function get_base_meta ($username) {
 		
-		$name = Database::get_field('user', 'username', $user_id);
-		
-		return 'index: area__main author__'.$name;
+		return 'index: area__main author__'.$username;
 	}
 }
