@@ -1,45 +1,49 @@
 {% extends "html/base.html" %}
 
 {% block header %}
-	<div class="header margin20"> 
-		<a href="http://4otaku.ru" class="logo">
-			<img src="/templates/images/4otakulogos.gif" alt="4отаку" />
-		</a> 
-		<img class="right" src="/templates/images/koishich.png" /> 
-	</div> 		
-	<div class="start_drawing_container margin20">	
-		<div class="loginform margin10">
-			Пожалуйста, подождите. 
-			<img src="/templates/images/loading.gif" />
-		</div>
-		<div class="start_drawing">	
-			<form enctype="multipart/form-data" method="post" action="/draw/">				
-				<div class="margin10">
-					Редактор: 
-					<select name="mode">
-						<option value="shi_painter">Shi Painter</option>
-						<option value="shi_painter_pro">Shi Painter Pro</option>
-					</select>
+	<tr>
+		<td valign="top">
+			<div class="header margin20"> 
+				<a href="http://4otaku.ru" class="logo">
+					<img src="/templates/images/4otakulogos.gif" alt="4отаку" />
+				</a> 
+				<img class="right" src="/templates/images/koishich.png" /> 
+			</div> 		
+			<div class="start_drawing_container margin20">	
+				<div class="loginform margin10">
+					Пожалуйста, подождите. 
+					<img src="/templates/images/loading.gif" />
 				</div>
-				<div class="margin10">
-					Тема оформления: 					
-					<select name="theme">
-						<option value="0">Стандартная</option>
-						{% for id, name in items.themes %}
-							<option value="{{id}}">{{name}}</option>
-						{% endfor %}
-					</select>					
+				<div class="start_drawing">	
+					<form enctype="multipart/form-data" method="post" action="/draw/">				
+						<div class="margin10">
+							Редактор: 
+							<select name="mode">
+								<option value="shi_painter">Shi Painter</option>
+								<option value="shi_painter_pro">Shi Painter Pro</option>
+							</select>
+						</div>
+						<div class="margin10">
+							Тема оформления: 					
+							<select name="theme">
+								<option value="0">Стандартная</option>
+								{% for id, name in items.themes %}
+									<option value="{{id}}">{{name}}</option>
+								{% endfor %}
+							</select>					
+						</div>
+						<div class="margin10">	
+							Ширина картинки: <input type="text" name="width" value="400" size="5"> 
+						</div>
+						<div class="margin10">
+							Высота картинки: <input type="text" name="height" value="400" size="5"> 
+						</div>
+						<input type="submit" value="Начать рисовать">
+					</form>
 				</div>
-				<div class="margin10">	
-					Ширина картинки: <input type="text" name="width" value="400" size="5"> 
-				</div>
-				<div class="margin10">
-					Высота картинки: <input type="text" name="height" value="400" size="5"> 
-				</div>
-				<input type="submit" value="Начать рисовать">
-			</form>
-		</div>
-	</div>
+			</div>
+		</td>
+	</tr>	
 {% endblock %}
 
 {% block content %}

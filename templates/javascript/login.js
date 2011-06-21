@@ -4,7 +4,7 @@ $(".logout").live('click', function() {
 	document.location.reload();
 });
 
-$(document).ready(function(){
+$(document).ready(function(){	
 	var forms = {
 		message: null,
 		init: function (type) {

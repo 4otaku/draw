@@ -1,18 +1,12 @@
 {% extends "html/base.html" %}
 
-{% block header %}
+{% block content %}
 <style>
-	body * { 
-		height: inherit; 
-	}
 	table.body {
 		margin: 0px;
 		padding: 0px;
 	}
 </style>
-{% endblock %}
-
-{% block content %}
 <script language="javascript" type="text/javascript" src="/templates/javascript/spainter.js"></script>
 {% if flag.pro %}
 	<applet 

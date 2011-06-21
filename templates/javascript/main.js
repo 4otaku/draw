@@ -51,6 +51,10 @@ $(document).ready(function(){
 					$(".commentsh2").hide();
 				}
 			}
+
+			var split_url = window.location.pathname.split('/');
+			$("input[name=place]").val(split_url[1]);
+			$("input[name=item_id]").val(split_url[2]);			
 		});
 	}	
 });
