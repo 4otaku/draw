@@ -1,6 +1,6 @@
 $(".logout").live('click', function() { 
-	$.cookie('beta_settings', null, {path: '/', domain: window.location.hostname});
-	$.cookie('beta_settings', null, {path: '/', domain: '.'+window.location.hostname});
+	$.cookie('draw_settings', null, {path: '/', domain: window.location.hostname});
+	$.cookie('draw_settings', null, {path: '/', domain: '.'+window.location.hostname});
 	document.location.reload();
 });
 

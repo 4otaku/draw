@@ -24,8 +24,8 @@ input {
 	padding: 3px;
 }
 
-table.body {	
-	background: url(/images/topbg.gif) repeat-x;	
+table.body {
+	background: url(/images/topbg.gif) repeat-x;
 	padding: 15px 0 0;
 }
 
@@ -42,8 +42,8 @@ a.plaintext {
 
 ul.plain_list {
 	margin: 0;
-	padding: 0;	
-	list-style-type: !important;	
+	padding: 0;
+	list-style-type: !important;
 }
 
 .cancel-holder {
@@ -54,7 +54,7 @@ img.cancel {
 	position: relative;
 	bottom: 9px;
 	left: 9px;
-	cursor: pointer;	
+	cursor: pointer;
 }
 
 .left  {
@@ -66,8 +66,8 @@ img.cancel {
 }
 
 .center {
-	margin-left: auto; 
-	margin-right: auto; 
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
 }
 
@@ -123,22 +123,22 @@ input, textarea {
     border: 1px solid #CCCCCC !important;
     border-bottom: 1px solid #eee !important;
     border-right: 1px solid #eee !important;
-    padding: 3px 3px 3px 3px !important; 
+    padding: 3px 3px 3px 3px !important;
 }
 
 button, input {
     background-color: #FFFFFF !important;
     text-decoration: none !important;
-    font-weight: bold !important; 
+    font-weight: bold !important;
     color: #565656 !important;
     cursor: pointer !important;
-    padding: 3px 3px 3px 3px !important; 
+    padding: 3px 3px 3px 3px !important;
 }
 
 textarea {
     background-color: #FFFFFF !important;
     cursor: pointer !important;
-    padding: 3px 3px 3px 3px !important; 
+    padding: 3px 3px 3px 3px !important;
 }
 
 input: hover, input: focus, button: hover, button: focus, textarea: hover, textarea: focus {
@@ -158,10 +158,10 @@ input: hover, input: focus, button: hover, button: focus, textarea: hover, texta
 
 #superbox-innerbox {
 	height: auto !important;
-} 
+}
 
-wbr { 
-	display: inline-block; 
+wbr {
+	display: inline-block;
 }
 
 div.mini-shell div.text {
@@ -174,8 +174,8 @@ div.mini-shell div.text {
 
 /* Общее */
 
-#content {	
-	padding-left: 15px; 
+#content {
+	padding-left: 15px;
 	padding-right: 15px;
 	border-left: 1px solid #E7E7E7;
 	border-right: 1px solid #E7E7E7;
@@ -183,23 +183,23 @@ div.mini-shell div.text {
 	min-height: 500px;
 }
 
-#sidebar {	
-	padding-left: 10px; 
+#sidebar {
+	padding-left: 10px;
 	line-height: 15pt;
 	width: 240px;
 }
 
-.art_body #sidebar {	
+.art_body #sidebar {
 	width: 220px;
 }
 
-#footer {	
+#footer {
 	height: 60px;
-	padding-left: 30px; 
-	padding-top: 10px; 
-	margin-top: 20px; 
+	padding-left: 30px;
+	padding-top: 10px;
+	margin-top: 20px;
 	border-top: 1px solid #E7E7E7;
-	background: url(/images/hline.gif) repeat-x; 	
+	background: url(/images/hline.gif) repeat-x;
 }
 
 #footer .right div {
@@ -211,11 +211,11 @@ div.mini-shell div.text {
 
 .start_drawing_container {
 	width: 100%;
-	text-align: center; 
+	text-align: center;
 }
 
 .start_drawing {
-	text-align: left; 
+	text-align: left;
 	width: 300px;
 	margin-left: auto ;
 	margin-right: auto ;
@@ -235,14 +235,14 @@ div.mini-shell div.text {
 
 h2{
 	font-size: 14pt;
-	font-weight: normal; 	
+	font-weight: normal;
 	margin-top: 5px;
 }
 
 .wrapper {
 	clear: both;
-	padding-top: 5px; 
-	line-height: 14pt;	
+	padding-top: 5px;
+	line-height: 14pt;
 }
 
 .meta {
@@ -252,7 +252,7 @@ h2{
 	border-top: 1px dashed #ccc;
 }
 
-.shell {	
+.shell {
 	border: 1px solid #E7E7E7;
 	padding: 5px;
 	margin-bottom: 25px;
@@ -302,7 +302,7 @@ h2{
 
 .art-bar {
 	text-align: left;
-	padding-left: 5px;	  
+	padding-left: 5px;
 }
 
 .art_translation {
@@ -335,7 +335,7 @@ h2{
 
 .edit_switch {
 	position: absolute;
-	cursor: pointer;	
+	cursor: pointer;
 }
 
 .edit_translation {
@@ -463,28 +463,32 @@ h2{
 }
 
 #navi_bottom div {
-	float: none; 
+	float: none;
 	clear: both;
 }
 
 /* Вывод комментариев */
 
 #comments {
-	margin-left: 15px; 
-	margin-top: 20px; 
+	margin-left: 15px;
+	margin-top: 20px;
+}
+
+.config_option {
+	margin: 10px;
 }
 
 .commentsh2 {
-  font-size: 14pt; 	
+  font-size: 14pt;
   font-weight: normal;
   color: #42A3B9;
   margin-top: 0px !important;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 a.comments {
-  margin-top: 5px; 
-  margin-bottom: 20px; 
+  margin-top: 5px;
+  margin-bottom: 20px;
 }
 
 .datetime {
@@ -506,32 +510,32 @@ a.comments {
 .comment-top {
 	height: 23px;
 	background: #FFFAF0;
-	padding-left: 10px; 
+	padding-left: 10px;
 }
 
-.comment-content {		
-	padding-left: 10px; 
-	min-height: 50px;	
-	padding-top: 3px;	
+.comment-content {
+	padding-left: 10px;
+	min-height: 50px;
+	padding-top: 3px;
 }
 
 .c-wrap {
 	clear: both;
-	padding-top: 20px; 	
+	padding-top: 20px;
 	border-bottom: 1px solid #DCDCDC;
 }
 
-.avatar-n {	
+.avatar-n {
 	float: left;
 	width: 50px;
-	height: 50px;	
+	height: 50px;
 	padding: 5px;
-	border: 1px solid Black;	
-	margin-right: 10px; 	 
+	border: 1px solid Black;
+	margin-right: 10px;
 }
 
-.comment-text {	
-	margin-left: 75px; 	 
+.comment-text {
+	margin-left: 75px;
 }
 
 div.respond {
