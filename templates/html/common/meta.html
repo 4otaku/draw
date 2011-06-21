@@ -1,6 +1,6 @@
 {{item.date}}
 {% if item.meta.author %}
-	 | {{item.meta_header.author}} 
+	 | Нарисовал 
 	{% for key, author in item.meta.author %}
 		{% if not loop.first %}, {% endif %}																	
 		<a href="{{item.base}}author/{{author.alias}}/">
