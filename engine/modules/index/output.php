@@ -19,7 +19,7 @@ class Index_Output extends Output
 		$latest = Database::get_table(
 			'art',
 			array('id', 'user_id', 'name'),
-			'area != "deleted" order by date desc limit 10'
+			'area != "deleted" order by date desc limit 20'
 		);
 		
 		$galleries = array();
@@ -36,7 +36,7 @@ class Index_Output extends Output
 			}
 		}
 		
-		$galleries = array_slice($galleries, 0, 4, true);
+		$galleries = array_slice($galleries, 0, 6, true);
 		
 		$users = Database::get_vector(
 			'user', 

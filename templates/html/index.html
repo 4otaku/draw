@@ -3,12 +3,6 @@
 {% block header %}
 	<tr>
 		<td valign="top">
-			<div class="header margin20"> 
-				<a href="http://4otaku.ru" class="logo">
-					<img src="/templates/images/4otakulogos.gif" alt="4отаку" />
-				</a> 
-				<img class="right" src="/templates/images/koishich.png" /> 
-			</div> 		
 			<div class="start_drawing_container margin20">	
 				<div class="loginform margin10">
 					Пожалуйста, подождите. 
@@ -52,7 +46,7 @@
 			<h2><a href="/comments/">Последние комментарии</a>:</h2>
 		</div>
 		{% for id, item in items.comments %}	
-			{% include 'html/item/comment_block.html' %}
+			{% include 'html/item/comment_block.html' with {'compact': 1} %}
 		{% endfor %}
 	</div>
 	<div class="index_block">

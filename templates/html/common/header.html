@@ -1,0 +1,22 @@
+<div class="header_menu">
+	<ul class="mainmenu"> 
+		{% for url, part in sub.header.items %}
+			<li class="header_menu_item">
+				<a href="{{url}}">
+					{{part.title}}
+				</a> 
+				{% if part.items %}
+					<ul> 
+						{% for url, name in part.items %}
+							<li>
+								<a href="{{url}}">
+									{{name}}
+								</a>
+							</li> 
+						{% endfor %}
+					</ul> 
+				{% endif %}
+			</li> 
+		{% endfor %}
+	</ul>
+</div>

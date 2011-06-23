@@ -1,5 +1,5 @@
 <div 
-	class="comment clear" 
+	class="comment{% if not compact %} clear{% endif %}" 
 	id="comment-{{id}}"
 >
 	<div class="comment-top">
@@ -19,15 +19,15 @@
 			{% if item.quotation %}
 				<blockquote class="quotation margin10">
 					<span class="username">{{item.quotation.username}}:</span>
-					{{item.quotation.text}}
+					{% if compact %}{{item.quotation.short_text}}{% else %}{{item.quotation.text}}{% endif %}
 				</blockquote>
 			{% endif %}			
-			<div class="margin10">{{item.text}}</div>
-			{% if not index %}
+			<div class="margin10">{% if compact %}{{item.short_text}}{% else %}{{item.text}}{% endif %}</div>
+			{% if not compact %}
 				<a href="#" class="disabled reply" rel="{{id}}">Ответить</a>
 				<div id="reply-{{id}}"></div>
-			{% endif %}			
-			<div class="c-wrap"></div>
+			{% endif %}
+			{% if not compact %}<div class="c-wrap"></div>{% endif %}
 		</div>
 	</div>	
 	{% if item.items %}

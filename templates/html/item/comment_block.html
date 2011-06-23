@@ -1,28 +1,50 @@
-<div class="shell post">
+<div class="shell">
 	<div class="left">
-		<h2>
+		{% if not compact %}<h2>{% endif %}
 			<a href="/gallery/{{item.link}}/">
 				{{item.title}}
 			</a>
-		</h2>
+		{% if not compact %}</h2>{% endif %}
 	</div>
 	<div class="right">
-		<b>
+		{% if not compact %}<b>{% endif %}
 			Всего комментариев: {{item.comments|default('0')}}
-		</b>
+		{% if not compact %}</b>{% endif %}
 	</div>
-	<table cellspacing="0" cellpadding="0" width="100%">
-		<tr>
-			{% if item.image %}
-				<td class="imageholder">
-					<div class="image-0">
-						<a href="/gallery/{{item.link}}/">
-							<img src="{{item.image}}" />
-						</a>
-					</div>
-				</td>
+	{% if not compact %}
+		<table cellspacing="0" cellpadding="0" width="100%">
+			<tr>
+				<td class="imageholder left">
+	{% else %}
+		<div>	
+			<div class="imageholder-small left">
+	{% endif %}
+				<div class="image-0">
+					<a href="/gallery/{{item.link}}/">
+						<img src="{{item.image}}" />
+					</a>
+				</div>
+	{% if compact %}		
+		</div>
+		<div>
+	{% else %}	
+		</td>
+		<td valign="top" width="100%">
+			{% if item.comments > item.limit %}
+				<p class="help">
+					Показываются только {{item.limit}} последних {{utils.wcase(item.limit, 'комментарий', 'комментария', 'комментариев')}}. 
+					<a href="/gallery/{{item.link}}/comments/all">
+						Читать все
+					</a>.
+				</p>
 			{% endif %}
-			<td valign="top">
+	{% endif %}
+			{% for comment_id, comment in item.items %}
+				{% if loop.length - loop.index < item.limit %}
+					{% include 'html/item/comment.html' with {'item': comment, 'id': comment_id, 'index': loop.index, 'compact' : compact} %}
+				{% endif %}
+			{% endfor %}
+	{% if compact %}
 				{% if item.comments > item.limit %}
 					<p class="help">
 						Показываются только {{item.limit}} последних {{utils.wcase(item.limit, 'комментарий', 'комментария', 'комментариев')}}. 
@@ -31,19 +53,18 @@
 						</a>.
 					</p>
 				{% endif %}
-				{% for comment_id, comment in item.items %}
-					{% if loop.length - loop.index < item.limit %}
-						{% include 'html/item/comment.html' with {'item': comment, 'id': comment_id, 'index': loop.index} %}
-					{% endif %}
-				{% endfor %}
-				<div class="respond">
-					<h2>
-						<a href="/gallery/{{item.link}}/">
-							Ответить
-						</a>
-					</h2>
-				</div>
-			</td>
-		</tr>
-	</table>
+			</div>
+		</div>
+	{% else %}
+					<div class="respond">
+						<h2>
+							<a href="/gallery/{{item.link}}/">
+								Ответить
+							</a>
+						</h2>
+					</div>
+				</td>
+			</tr>
+		</table>
+	{% endif %}
 </div>

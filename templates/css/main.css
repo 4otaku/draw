@@ -596,6 +596,12 @@ img.bb {
 	vertical-align: top;
 }
 
-.imageholder div {
-	margin: 10px 10px 0 0;
+.imageholder-small {
+	width: 120px;
+	text-align: center;
+	vertical-align: top;
+}
+
+.imageholder div, .imageholder-small div {
+	margin: 15px 15px 0 0;
 }
