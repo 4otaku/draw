@@ -20,6 +20,8 @@ CREATE TABLE `<pr>meta` (
   UNIQUE KEY `identity` (`type`,`alias`,`area`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+INSERT INTO `draw`.`draw_meta` (`type`, `alias`, `name`, `color`, `area`) VALUES ('author', 'anonymous', 'гость', NULL, NULL);
+
 DROP TABLE IF EXISTS `<pr>meta_count`;
 CREATE TABLE IF NOT EXISTS `<pr>meta_count` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,

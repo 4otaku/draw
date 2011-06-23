@@ -26,7 +26,7 @@ input {
 
 table.body {
 	background: url(/templates/images/topbg.gif) repeat-x;
-	padding: 15px 0 0;
+	padding: 15px 10px 0;
 }
 
 table.body a {

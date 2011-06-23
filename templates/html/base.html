@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
 <head>
-	<link rel="stylesheet" href="/templates/minify/index.php?b=templates/css&f=reset.css,header.css,main.css&ver=8" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/templates/minify/index.php?b=templates/css&f=reset.css,header.css,main.css&ver=9" type="text/css" media="screen" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="-1" />
@@ -10,10 +10,10 @@
 	<script type="text/javascript" src="/templates/minify/index.php?b=templates/javascript&f=jquery-1.5.1.min.js,library.js,main.js&ver=5"></script>
 </head>
 <body>
-	<table width="100%" height="100%" valign="top" class="body">
-		{% if sub.header %}
-			{% include 'html/common/header.html' %}
-		{% endif %}
+	{% if sub.header %}
+		{% include 'html/common/header.html' %}
+	{% endif %}
+	<table width="100%" height="95%" valign="top" class="body">
 		{% block header %}
 		{% endblock %}
 		<tr>
