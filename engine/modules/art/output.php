@@ -58,6 +58,22 @@ class Art_Output extends Output_Main implements Plugins
 			return;
 		}
 		
-		return Database::get_full_row('description', 'type = ? and description_id = ?', $params);
+		$params['text'] = Database::get_field(
+			'description', 
+			'text',
+			'type = ? and description_id = ?', 
+			$params
+		);
+		
+		if ($params['type'] == 'author') {
+			$user = Meta_Author::get_data_by_alias((array) $params['id']);
+			$user = current($user);
+			$params['username'] = $user['name'];
+		} else {
+			$params['data'] = Database::get_full_row('art', $query['id']);
+			$params['username'] = Database::get_field('user', 'username', $params['data']['user_id']);
+		}
+		
+		return $params;
 	}
 }

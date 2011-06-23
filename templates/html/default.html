@@ -4,10 +4,7 @@
 	{% if sub.description.type %}
 		{% include ['html/description/',sub.description.type,'.html']|join %}
 	{% endif %}
-	{% if sub.login is not none %}
-		{% include 'html/common/login.html' %}
-	{% endif %}	
-	<div class="post">
+	<div>
 		{% for id, item in items %}
 			{% include ['html/item/',item.item_type,'.html']|join %}
 		{% endfor %}

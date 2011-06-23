@@ -267,6 +267,14 @@ h2{
 
 /* Галереи с артом */
 
+.description {
+	float: left;
+	height: 100%;
+	width: 220px;
+	padding: 10px;
+	border-right: 1px solid #E7E7E7;
+}
+
 .art_body {
 	display: table-cell;
 }
@@ -288,16 +296,6 @@ h2{
 	height: 120px;
 }
 
-.large_extractor_thumbnail {
-	width: 260px;
-	height: 300px;
-}
-
-.small_extractor_thumbnail {
-	width: 180px;
-	height: 220px;
-}
-
 .booru_main {
   text-align: center;
 }
@@ -305,43 +303,6 @@ h2{
 .art-bar {
 	text-align: left;
 	padding-left: 5px;
-}
-
-.art_translation {
-	position: absolute;
-	opacity: 0.5;
-	background: none repeat scroll 0 0 #EEEEFF;
-	border: 1px solid #000000;
-	cursor: pointer;
-}
-
-.art_translation_active {
-	position: absolute;
-	opacity: 0.9;
-	background: none repeat scroll 0 0 #EEEEFF;
-	border: 1px solid #000000;
-	cursor: move;
-	text-align: right;
-}
-
-.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
-.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
-.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0px; }
-.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0px; }
-.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0px; height: 100%; }
-.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0px; height: 100%; }
-.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
-.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
-.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
-.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
-
-.edit_switch {
-	position: absolute;
-	cursor: pointer;
-}
-
-.edit_translation {
-	position: absolute;
 }
 
 .image {

@@ -1,1 +1,37 @@
+<div class="description">
+	<div class="margin20">		
+		Информация об изображении:
+	</div>
+	<div class="margin10">		
+		Нарисовал: 
+		{% if sub.description.username == 'anonymous' %}
+			гость.
+		{% else %}						
+			<nobr>
+				{{sub.description.username}}.
+			</nobr>
+		{% endif %}
+	</div>
+	<div class="margin10">		
+		Ширина: 
+		{{sub.description.data.width}} пикселей.
+	</div>
+	<div class="margin10">		
+		Высота: 
+		{{sub.description.data.height}} пикселей.
+	</div>
+	<div class="margin10">		
+		Вес: 
+		{{sub.description.data.weight}} байт.
+	</div>
+	<div class="margin10">		
+		Нарисовано: 
+		{{sub.description.data.date}}.
+	</div>
 
+	{% if sub.description.text %}
+		{{sub.description.text}}
+	{% else %}
+		У изображения нет описания.
+	{% endif %}
+</div>

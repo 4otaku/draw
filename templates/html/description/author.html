@@ -1,0 +1,21 @@
+<div class="description">
+	<div class="margin20">		
+		{% if sub.description.description_id == 'anonymous' %}
+			<strong>
+				Общая галерея
+			</strong>
+		{% else %}		
+			Галерея художника: 
+			<strong>
+				<nobr>
+					{{sub.description.username}}
+				</nobr>
+			</strong>
+		{% endif %}		
+	</div>
+	{% if sub.description.text %}
+		{{sub.description.text}}
+	{% else %}
+		{{sub.description.username}} пока ничего про себя не написал
+	{% endif %}
+</div>
