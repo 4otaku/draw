@@ -3,7 +3,7 @@
 class Admin_Input extends Input implements Plugins
 {
 	public function add_painter_theme ($query) {
-		
+return;	
 		$insert = array();
 		
 		foreach ($query as $field => $value) {
@@ -16,7 +16,7 @@ class Admin_Input extends Input implements Plugins
 	}
 	
 	public function edit_painter_theme ($query) {
-		
+return;		
 		$update = array();
 		
 		$id = (int) $query['item_id'];

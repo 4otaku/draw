@@ -189,3 +189,16 @@ ALTER TABLE  `<pr>painter_themes` ADD UNIQUE  `selector` (  `disabled` ,  `id` )
 
 INSERT INTO `<pr>painter_themes` (`id`, `name`, `disabled`, `pro_menu_color_text`, `pro_menu_color_off`, `pro_menu_color_off_hl`, `pro_menu_color_off_dk`, `pro_menu_color_on`, `pro_menu_color_on_hl`, `pro_menu_color_on_dk`, `bar_color_bk`, `bar_color_frame`, `bar_color_off`, `bar_color_off_hl`, `bar_color_off_dk`, `bar_color_on`, `bar_color_on_hl`, `bar_color_on_dk`, `bar_color_text`, `window_color_text`, `window_color_frame`, `window_color_bk`, `window_color_bar`, `window_color_bar_hl`, `window_color_bar_text`, `dlg_color_bk`, `dlg_color_text`, `color_bk`, `color_bk2`, `l_m_color`, `l_m_color_text`, `color_text`, `color_icon`, `color_frame`, `color_iconselect`, `color_bar`, `color_bar_hl`, `color_bar_shadow`, `tool_color_bk`, `tool_color_button`, `tool_color_button_hl`, `tool_color_button_dk`, `tool_color_button2`, `tool_color_text`, `tool_color_bar`, `tool_color_frame`) VALUES ('1', 'Стандартная', '0', '#FFFFFF', '#222233', '#333344', '0', '#ff0000', '#ff8888', '#660000', '#00ffff', '#ff0000', '#ffffff', '#ffffff', '#888888', '#aaaaaa', '#aaaaaa', '#aaaaaa', '0xff0000', '#ff0000', '#ffff00', '#000000', '#777777', '#888888', '#000000', '#ccccff', '0', '#FFFF0', '#FF00FF', '#ffffff', '#0000ff', '0', '#0FFFF', '0xff', '#112233', '0', '#665544', '#778899', '#aabbcc', '#ddeeff', '#9900ff', '#ff0099', '#ffffff', '0', '#00ff00', '#ff0000');
 INSERT INTO `<pr>user` (`id`, `username`, `password`, `email`, `cookie`, `rights`) VALUES ('0', 'anonymous', '---', '', '', '0');
+
+CREATE TABLE IF NOT EXISTS `<pr>description` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `type` varchar(32) NOT NULL,
+  `description_id` varchar(32) NOT NULL,
+  `text` text NOT NULL,
+  `pretty_text` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `selector` (`type`,`description_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+INSERT INTO `<pr>description` (`id`, `type`, `description_id`, `text`, `pretty_text`) VALUES
+(1, 'author', 'anonymous', 'Это общая галерея для гостей. <br />\r\nСюда попадают изображения нарисованные не зарегистрировавшимися художниками.', 'Это общая галерея для гостей. \r\nСюда попадают изображения нарисованные не зарегистрировавшимися художниками.');

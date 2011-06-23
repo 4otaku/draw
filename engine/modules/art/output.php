@@ -43,4 +43,21 @@ class Art_Output extends Output_Main implements Plugins
 		
 		return $return;
 	}
+	
+	public function description ($query) {
+		
+		$params = array();
+		
+		if (isset($query['meta']) && $query['meta'] == 'author' && isset($query['alias'])) {
+			$params['type'] = 'author';
+			$params['id'] = $query['alias'];
+		} elseif (isset($query['id'])) {
+			$params['type'] = 'art';
+			$params['id'] = $query['id'];			
+		} else {
+			return;
+		}
+		
+		return Database::get_full_row('description', 'type = ? and description_id = ?', $params);
+	}
 }

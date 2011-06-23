@@ -1,8 +1,8 @@
 {% extends "html/base.html" %}
 
 {% block content %}
-	{% if sub.description.template %}
-		{% include ['html/description/',sub.description.template,'.html']|join %}
+	{% if sub.description.type %}
+		{% include ['html/description/',sub.description.type,'.html']|join %}
 	{% endif %}
 	{% if sub.login is not none %}
 		{% include 'html/common/login.html' %}
