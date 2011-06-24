@@ -16,10 +16,12 @@ class Index_Output extends Output
 	}
 	
 	protected function get_latest_art () {	
+		$latest_art_count = Config::template('latest_art_count');
+		
 		$latest = Database::get_table(
 			'art',
 			array('id', 'user_id', 'name'),
-			'area != "deleted" order by date desc limit 20'
+			'area != "deleted" order by date desc limit '.$latest_art_count
 		);
 		
 		$galleries = array();
