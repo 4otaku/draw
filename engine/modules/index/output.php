@@ -34,7 +34,7 @@ class Index_Output extends Output
 			);
 			
 			if (count($galleries[$art['user_id']]['images']) > 2) {
-				break;
+				continue;
 			}
 		}
 		
