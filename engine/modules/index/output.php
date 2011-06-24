@@ -28,14 +28,14 @@ class Index_Output extends Output
 		
 		foreach ($latest as $art) {
 			
+			if (count($galleries[$art['user_id']]['images']) > 2) {
+				continue;
+			}
+			
 			$galleries[$art['user_id']]['images'][] = array(
 				'id' => $art['id'],
 				'name' => $art['name'],
 			);
-			
-			if (count($galleries[$art['user_id']]['images']) > 2) {
-				continue;
-			}
 		}
 		
 		$galleries = array_slice($galleries, 0, 6, true);
