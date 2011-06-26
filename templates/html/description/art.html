@@ -4,13 +4,15 @@
 	</div>
 	<div class="margin10">		
 		Нарисовал: 
-		{% if sub.description.username == 'anonymous' %}
-			гость.
-		{% else %}						
-			<nobr>
-				{{sub.description.username}}.
-			</nobr>
-		{% endif %}
+		<a href="/gallery/author/{{sub.description.alias}}/">
+			{% if sub.description.username == 'anonymous' %}
+				гость.
+			{% else %}						
+				<nobr>
+					{{sub.description.username}}.
+				</nobr>
+			{% endif %}
+		</a>
 	</div>
 	<div class="margin10">		
 		Ширина: 
@@ -22,7 +24,7 @@
 	</div>
 	<div class="margin10">		
 		Вес: 
-		{{sub.description.data.weight}} байт.
+		{{sub.description.data.weight}}.
 	</div>
 	<div class="margin10">		
 		Нарисовано: 

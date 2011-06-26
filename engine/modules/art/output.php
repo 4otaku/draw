@@ -72,6 +72,9 @@ class Art_Output extends Output_Main implements Plugins
 		} else {
 			$params['data'] = Database::get_full_row('art', $query['id']);
 			$params['username'] = Database::get_field('user', 'username', $params['data']['user_id']);
+			$params['alias'] = Meta_Author::get_alias_by_name($params['username']);
+			$params['data']['weight'] = Transform_File::weight($params['data']['weight']);
+			$params['data']['date'] = Transform_String::rudate(Database::date_to_unix($params['data']['date']));
 		}
 		
 		return $params;
