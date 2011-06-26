@@ -14,7 +14,10 @@
 		{% endif %}		
 	</div>
 	{% if sub.description.text %}
-		{{sub.description.text}}
+		<div class="margin10">
+			{{sub.description.username}} о себе: <br />
+			{{sub.description.text}}
+		</div>
 		{% if sub.description.can_edit %}
 			{% include 'html/common/edit_description.html' with {
 				'label' : 'Редактировать информацию', 
@@ -22,7 +25,9 @@
 			} %}
 		{% endif %}
 	{% else %}
-		{{sub.description.username}} пока ничего про себя не написал
+		<div class="margin10">
+			{{sub.description.username}} пока ничего про себя не написал
+		</div>
 		{% if sub.description.can_edit %}
 			{% include 'html/common/edit_description.html' with {
 				'label' : 'Рассказать о себе', 
