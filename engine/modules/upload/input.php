@@ -28,7 +28,7 @@ class Upload_Input extends Input implements Plugins
 
 	public function pixlr ($query) {
 		$info = Globals::user_info();
-		if (empty($info)) {
+		if (empty($info['username'])) {
 			$info = Database::get_full_row('user', 0);
 		}
 		
