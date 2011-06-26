@@ -12,12 +12,14 @@
 					<form enctype="multipart/form-data" method="post" action="/draw/">				
 						<div class="margin10">
 							Редактор: 
-							<select name="mode">
-								<option value="shi_painter">Shi Painter</option>
-								<option value="shi_painter_pro">Shi Painter Pro</option>
+							<select name="mode" class="mode">
+								<option value="shi_painter" class="themed sized">Shi Painter</option>
+								<option value="shi_painter_pro" class="themed sized">Shi Painter Pro</option>
+								<option value="pixlr_express" class="sized hidden">Pixlr Express</option>
+								<option value="pixlr_editor" class="sized hidden">Pixlr Editor</option>
 							</select>
 						</div>
-						<div class="margin10">
+						<div class="margin10 theme_field">
 							Тема оформления: 					
 							<select name="theme">
 								<option value="0">Стандартная</option>
@@ -26,13 +28,13 @@
 								{% endfor %}
 							</select>					
 						</div>
-						<div class="margin10">	
+						<div class="margin10 size_field">	
 							Ширина картинки: <input type="text" name="width" value="400" size="5"> 
 						</div>
-						<div class="margin10">
+						<div class="margin10 size_field">
 							Высота картинки: <input type="text" name="height" value="400" size="5"> 
 						</div>
-						<input type="submit" value="Начать рисовать">
+						<input type="submit" value="Начать рисовать" />
 					</form>
 				</div>
 			</div>

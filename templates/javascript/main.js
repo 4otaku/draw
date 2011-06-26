@@ -47,10 +47,30 @@ $(".loginform").ready(function(){
     $(".loginform").load('/profile/');
 });
 
+function toggle_options(object) {
+	if (object.is(".themed")) {
+		$(".theme_field").show();
+	} else {
+		$(".theme_field").hide();
+	}
+	
+	if (object.is(".sized")) {
+		$(".size_field").show();
+	} else {
+		$(".size_field").hide();
+	}	
+}
+
 $(document).ready(function(){
 	$(".checked").attr('checked', true);
 	$(".not_checked").attr('checked', false);
 	$("select .selected").attr('selected', 'selected');
+	
+	toggle_options($(".start_drawing .mode :selected"));
+	
+	$(".start_drawing .mode").change(function(){
+		toggle_options($(".start_drawing .mode :selected"));
+	});
 
 	if ($("div#comments-form").length == 1) {
 		$("div#comments-form").load("/templates/ajax/comment_form.html", function(){

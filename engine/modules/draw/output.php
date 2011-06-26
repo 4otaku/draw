@@ -13,7 +13,7 @@ class Draw_Output extends Output implements Plugins
 		$this->get_user();
 		
 		if (!empty($vars['mode'])) {
-			$this->flags['pro'] = ($vars['mode'] == 'shi_painter_pro');
+			$this->flags['mode'] = $vars['mode'];
 		}
 		
 		if (!empty($vars['width'])) {

@@ -10,50 +10,70 @@
 		height: 100%;
 	}
 </style>
-<script language="javascript" type="text/javascript" src="/templates/javascript/spainter.js"></script>
-{% if flag.pro %}
-	<applet 
-		code="c.ShiPainter.class" 
-		name="paintbbs" 
-		archive="/templates/java/spainter/pro.jar,/templates/java/spainter/pro.zip" 
-		class="shi_painter"
-	>
-{% else %}	
-	<applet 
-		code="c.ShiPainter.class" 
-		name="paintbbs" 
-		archive="/templates/java/spainter/all.jar" 
-		class="shi_painter"
-	>
-{% endif %}
-
-	<param name="image_width" value="{{items.width}}" />
-	<param name="image_height" value="{{items.height}}" />
-
-	<param name="dir_resource" value="/templates/java/spainter/" />
-	
-	{% if flag.pro %}
-		<param name="tt.zip" value="/templates/java/spainter/tt.zip" />
-		<param name="res.zip" value="/templates/java/spainter/res_pro.zip" />
-		<param name="tools" value="pro" />
-		<param name="quality" value="2" />
-	{% else %}
-		<param name="tt.zip" value="/templates/java/spainter/tt.zip" />
-		<param name="res.zip" value="/templates/java/spainter/res_normal.zip" />
-		<param name="tools" value="normal" />
+{% if flag.mode == 'shi_painter' or flag.mode == 'shi_painter_pro' %}
+	<script language="javascript" type="text/javascript" src="/templates/javascript/spainter.js"></script>
+	{% if flag.mode == 'shi_painter_pro' %}
+		<applet 
+			code="c.ShiPainter.class" 
+			name="paintbbs" 
+			archive="/templates/java/spainter/pro.jar,/templates/java/spainter/pro.zip" 
+			class="shi_painter"
+		>
+	{% else %}	
+		<applet 
+			code="c.ShiPainter.class" 
+			name="paintbbs" 
+			archive="/templates/java/spainter/all.jar" 
+			class="shi_painter"
+		>
 	{% endif %}
-	
-	<param name="url_save" value="/upload/?function=gallery" />
-	<param name="url_exit" value="/gallery/author/{{items.user_name}}/" />
-	<param name="send_header_timer" value="true" />
-	<param name="compress_level" value="0" />
-	
-	<param name="layer_count" value="3" />
-	<param name="send_header" value="{{items.cookie}}&" />
 
-	{% for name, value in items.theme %}
-		<param name="{{name}}" value="{{value}}" />
-	{% endfor %}
+		<param name="image_width" value="{{items.width}}" />
+		<param name="image_height" value="{{items.height}}" />
 
-</applet>
+		<param name="dir_resource" value="/templates/java/spainter/" />
+		
+		{% if flag.mode == 'shi_painter_pro' %}
+			<param name="tt.zip" value="/templates/java/spainter/tt.zip" />
+			<param name="res.zip" value="/templates/java/spainter/res_pro.zip" />
+			<param name="tools" value="pro" />
+			<param name="quality" value="2" />
+		{% else %}
+			<param name="tt.zip" value="/templates/java/spainter/tt.zip" />
+			<param name="res.zip" value="/templates/java/spainter/res_normal.zip" />
+			<param name="tools" value="normal" />
+		{% endif %}
+		
+		<param name="url_save" value="/upload/?function=gallery" />
+		<param name="url_exit" value="/gallery/author/{{items.user_name}}/" />
+		<param name="send_header_timer" value="true" />
+		<param name="compress_level" value="0" />
+		
+		<param name="layer_count" value="3" />
+		<param name="send_header" value="{{items.cookie}}&" />
+
+		{% for name, value in items.theme %}
+			<param name="{{name}}" value="{{value}}" />
+		{% endfor %}
+
+	</applet>
+{% elseif flag.mode == 'pixlr_express' or flag.mode == 'pixlr_editor' %}
+	<script language="javascript" type="text/javascript" src="/templates/javascript/pixlr.js"></script>
+	<script language="javascript" type="text/javascript">
+		pixlr.edit({ 
+			target: 'http://draw.4otaku.ru/upload/?function=pixlr', 
+			exit: 'http://draw.4otaku.ru/',
+			image: 'http://draw.4otaku.ru/tools/white.php?width={{items.width}}&height={{items.height}}',
+			{% if flag.mode == 'pixlr_express' %}
+				service: 'express',
+			{% endif %}
+			locktype: 'png'
+		});
+	</script>
+{% else %}
+	<h2>Ошибка инициализации</h2>
+	<script language="javascript" type="text/javascript">
+		document.location.href = '/';
+	</script>
+{% endif %}	
 {% endblock %}
