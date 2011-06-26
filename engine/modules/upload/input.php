@@ -4,16 +4,44 @@ class Upload_Input extends Input implements Plugins
 {
 	protected $user_id = 0;
 	
-	public function gallery ($query) {
+	public function shi_painter ($query) {
 		$data = $this->parse_shi_paint(file_get_contents('php://input'));
 		
 		if (!empty($data['user']['info']['id'])) {
 			$this->user_id = $data['user']['info']['id'];
 		} else {
 			$this->user_id = 0;
+		}		
+		
+		if(!empty($data['user']['info']['username'])) {
+			$username = Meta_Author::get_alias_by_name($data['user']['info']['username']);
+		}
+			
+		if (empty($username)) {
+			$username = 'anonymous';
 		}
 		
-		$image_file = $this->get_temp_file($data['image']);		
+		$this->save($data['image'], $username, $data['timer']);
+		
+		exit();
+	}	
+
+	public function pixlr ($query) {
+		$info = Globals::user_info();
+		
+		$this->user_id = $info['id'];
+		
+		$image_data = file_get_contents($query['image']);
+		
+		$this->save($image_data, $info['username']);
+		
+		$alias = Meta_Author::get_alias_by_name($info['username']);
+		$this->redirect_address = '/gallery/author/'.$alias.'/';
+	}
+	
+	protected function save ($image_data, $username, $timer = 0) {
+		
+		$image_file = $this->get_temp_file($image_data);		
 		$image = new Transform_Image($image_file);
 		
 		$format = strtolower($image->get_format());
@@ -66,19 +94,9 @@ class Upload_Input extends Input implements Plugins
 			),
 			$thumbnail_settings['compression'],
 			true
-		);		
+		);
 		
-		if(!empty($data['user']['info']['username'])) {
-			$username = Meta_Author::get_alias_by_name($data['user']['info']['username']);
-		}
-			
-		if (empty($username)) {
-			$username = 'anonymous';
-		}
-		
-		Art_Input::save($save_full, $username, $this->user_id, $data['timer']);
-		
-		exit();
+		Art_Input::save($save_full, $username, $this->user_id, $timer);
 	}
 	
 	protected function parse_shi_paint ($input) {
@@ -108,11 +126,11 @@ class Upload_Input extends Input implements Plugins
 	protected function get_temp_file ($data) {
 		$filename = microtime(true).'_'.md5($this->user_id);
 		
-		if (!file_exists(CACHE.SL.'tmp_IMAGES')) {
-			mkdir(CACHE.SL.'tmp_IMAGES');
+		if (!file_exists(CACHE.SL.'tmp_images')) {
+			mkdir(CACHE.SL.'tmp_images');
 		}
 		
-		$filename = CACHE.SL.'tmp_IMAGES'.SL.$filename;
+		$filename = CACHE.SL.'tmp_images'.SL.$filename;
 		
 		file_put_contents($filename, $data);
 		
