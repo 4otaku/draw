@@ -10,11 +10,21 @@ class Authors_Output extends Output_Main implements Plugins
 			'last_draw != "0000-00-00 00:00:00" order by last_draw desc'
 		);
 
-		$items = Database::get_full_vector(
+		$authors = Database::get_full_table(
 			'meta', 
 			Database::array_in('name', $names),
 			$names
 		);
+		
+		$items = array();
+		$names = array_values($names);
+		
+		foreach ($authors as $author) {
+			$order_id = array_search($author['name'], $names);
+			$items[$order_id] = $author;
+		}
+		
+		ksort($items);
 
 		$return = array();
 		$aliases = array();
