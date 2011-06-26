@@ -4,9 +4,17 @@ class Authors_Output extends Output_Main implements Plugins
 {
 	public function get_content ($query, $perpage, $page, $start) {
 		
-		$condition = "type = 'author' order by id desc limit $start, $perpage";
+		$names = Database::set_counter()->get_vector(
+			'user', 
+			array('id', 'username'), 
+			'last_draw != "0000-00-00 00:00:00" order by last_draw desc'
+		);
 
-		$items = Database::set_counter()->get_full_vector('meta', $condition);
+		$items = Database::get_full_vector(
+			'meta', 
+			Database::array_in('name', $names),
+			$names
+		);
 
 		$return = array();
 		$aliases = array();

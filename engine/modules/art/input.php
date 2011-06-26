@@ -19,6 +19,10 @@ class Art_Input extends Input implements Plugins
 		);
 		
 		Database::insert('art', $insert);
+		
+		$update = array('last_draw' => Database::unix_to_date());
+		
+		Database::update('user', $user_id, $update);
 	}
 	
 	protected static function get_base_meta ($username) {

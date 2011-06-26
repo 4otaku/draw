@@ -137,6 +137,9 @@ CREATE TABLE IF NOT EXISTS `<pr>user` (
   KEY `login_mail` (`email`,`password`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+ALTER TABLE  `<pr>user` ADD  `last_draw` DATETIME NOT NULL ,
+ADD INDEX (  `last_draw` )
+
 CREATE TABLE IF NOT EXISTS `<pr>painter_themes` (
 	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, 
 	`name` VARCHAR(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, 
