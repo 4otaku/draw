@@ -51,7 +51,7 @@
 		{% if item.item_type == 'comment' %}
 			{% include 'html/item/comment.html' %}
 		{% elseif item.item_type == 'navi' and loop.last and not loop.first %}
-			{% include 'html/item/navi.html' %}
+			{% include 'html/item/navi.html' with {'comments': 1} %}
 		{% endif %}
 	{% endfor %}
 
