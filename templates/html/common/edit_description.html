@@ -1,0 +1,31 @@
+<div class="edit_description">
+	<button class="disabled show_form">{{label}}</button>
+	<div class="edit_field">
+		<textarea id="description_textfield">{{text}}</textarea>
+		<table cellspacing="3px" class="description_bbholder">
+			<tr>
+				<td>
+					<img src="/templates/images/bb/bold.png" rel="b" class="bb" title="Выделить жирным" />
+				</td>
+				<td>
+					<img src="/templates/images/bb/italic.png" rel="i" class="bb" title="Выделить курсивом" />
+				</td>
+				<td>
+					<img src="/templates/images/bb/strike.png" rel="s" class="bb" title="Зачеркнутый текст" />
+				</td>
+				<td>
+					<img src="/templates/images/bb/spoiler.png" rel="spoiler" class="bb" title="Спойлер" />
+				</td>
+				<td>
+					<img src="/templates/images/bb/picture.png" rel="img" class="bb" title="Добавить картинку" />
+				</td>
+				<td>
+					<img src="/templates/images/bb/link.png" rel="url" class="bb" title="Добавить ссылку" />
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" class="edit_type_information" value="{{sub.description.type}}" />
+		<input type="hidden" class="edit_id_information" value="{{sub.description.id}}" />
+		<button class="disabled save_form">Сохранить</button>	
+	</div>
+</div>	

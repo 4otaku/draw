@@ -58,12 +58,16 @@ class Art_Output extends Output_Main implements Plugins
 			return;
 		}
 		
-		$params['text'] = Database::get_field(
+		$text = Database::get_row(
 			'description', 
-			'text',
+			array('text', 'pretty_text'),
 			'type = ? and description_id = ?', 
 			$params
 		);
+		
+		if (!empty($text)) {
+			$params = array_merge($params, $text);
+		}
 		
 		if ($params['type'] == 'author') {
 			$user = Meta_Author::get_data_by_alias((array) $params['id']);
@@ -76,6 +80,8 @@ class Art_Output extends Output_Main implements Plugins
 			$params['data']['weight'] = Transform_File::weight($params['data']['weight']);
 			$params['data']['date'] = Transform_String::rudate(Database::date_to_unix($params['data']['date']));
 		}
+		
+		$params['can_edit'] = ($params['username'] == Globals::user_info('username'));
 		
 		return $params;
 	}

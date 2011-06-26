@@ -26,14 +26,30 @@
 		Вес: 
 		{{sub.description.data.weight}}.
 	</div>
-	<div class="margin10">		
+	<div class="margin10">
 		Нарисовано: 
 		{{sub.description.data.date}}.
 	</div>
 
 	{% if sub.description.text %}
-		{{sub.description.text}}
+		<div class="margin10">
+			{{sub.description.text}}
+		</div>
+		{% if sub.description.can_edit %}
+			{% include 'html/common/edit_description.html' with {
+				'label' : 'Редактировать описание', 
+				'text' : sub.description.pretty_text
+			} %}
+		{% endif %}
 	{% else %}
-		У изображения нет описания.
+		<div class="margin10">
+			У изображения нет описания.
+		</div>
+		{% if sub.description.can_edit %}
+			{% include 'html/common/edit_description.html' with {
+				'label' : 'Добавить описание', 
+				'text' : ''
+			} %}
+		{% endif %}		
 	{% endif %}
 </div>

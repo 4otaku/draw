@@ -76,5 +76,63 @@ $(document).ready(function(){
 		$("#comment-parent").val($(this).attr('rel'));	
 		$("#comment-main").show();
 		$(".commentsh2").hide();
+	});	
+	
+	$(".edit_description button.show_form").click(function(){
+		$(".edit_field").toggle();
+	});
+	
+	$(".edit_description button.save_form").click(function(){
+		var val; var on_complete;
+
+		val = $(".edit_field textarea").val();
+
+		on_complete = function() {
+			document.location.reload();
+		};
+
+		$.ajax({
+			'data': {
+				'module' : 'description',
+				'input': true,
+				'function': 'edit',
+				'type': $(".edit_type_information").val(),
+				'id': $(".edit_id_information").val(),
+				'text': val
+			},
+			'success': on_complete
+		});
+	});
+	
+	$(".description_bbholder img.bb").easyTooltip();
+	
+	$('.description_bbholder img.bb').click(function() {
+		var getimage='';var urltext='';var attribs='';
+		if ($(this).attr('rel') == 'url') {								
+			attribs = prompt('Адрес ссылки, полностью', 'http://');
+			if (attribs == '' || attribs == null) return false;
+			else attribs = '='+attribs;
+			if (attribs == "=null") return false;			
+			element = document.getElementById('textfield');
+			if (element.selectionStart == element.selectionEnd) {
+				urltext = prompt('Текст ссылки', '');
+				if (urltext == null) return false;
+			}			
+		}
+		if ($(this).attr('rel') == 'img') {
+			getimage = prompt('Адрес картинки, полностью', 'http://');
+			if (getimage == '' || getimage == null) return false;
+			attribs = '='+prompt('Уменьшить пропорционально до ширины, в пикселях', '400');
+			if (attribs == "=null") return false;			
+		}
+		if ($(this).attr('rel') == 'spoiler') {
+			attribs = '='+prompt('Заголовок для спойлера', '');
+			if (attribs == "=null") return false;
+		}
+		var start = '['+$(this).attr('rel')+attribs+']'+urltext;
+		var end = '[/'+$(this).attr('rel')+']';
+		if ($(this).attr('rel') != 'img') insert(start, end, 'description_textfield');
+		else $("#description_textfield").val($("#description_textfield").val() + start + getimage + end);
+		return false;
 	});		
 });

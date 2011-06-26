@@ -152,7 +152,7 @@ input: hover, input: focus, button: hover, button: focus, textarea: hover, texta
 	padding: 5px 10px;
 	max-width: 45%;
 	border: 1px solid #195fa4;
-	background: #195fa4 url('/i/bg.gif') repeat-x;
+	background: #195fa4 url('/templates/images/bg.gif') repeat-x;
 	color: #fff;
 }
 
@@ -179,7 +179,6 @@ div.mini-shell div.text {
 	padding-right: 10px;
 	margin-left:240px; 
 	border-left: 1px solid #E7E7E7;
-	min-height: 500px;
 }
 
 #footer {
@@ -258,6 +257,36 @@ h2{
 	float: left;
 	width: 220px;
 	padding: 10px;
+}
+
+.edit_description button {
+	font-size: 13px;
+}
+
+.edit_field {
+	display: none;
+}
+
+.edit_field textarea {
+	margin-top: 15px;
+	width: 200px;
+	height: 300px;
+}
+
+.description_bbholder {
+	border: 2px solid #666;
+	margin-top: 5px;
+}
+
+.description_bbholder img.bb {
+	background-color: #EEEEFF;
+	border: 1px solid #666;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.description_bbholder td {
+	padding: 0px !important;
 }
 
 .art_body {
@@ -486,7 +515,7 @@ div.respond {
 	margin-top: 3px;
 }
 
-img.bb {
+.bbholder img.bb {
 	background-color: #EEEEFF;
 	border: 1px solid #666;
 	margin: 0px !important;

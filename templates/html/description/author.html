@@ -15,7 +15,19 @@
 	</div>
 	{% if sub.description.text %}
 		{{sub.description.text}}
+		{% if sub.description.can_edit %}
+			{% include 'html/common/edit_description.html' with {
+				'label' : 'Редактировать информацию', 
+				'text' : sub.description.pretty_text
+			} %}
+		{% endif %}
 	{% else %}
 		{{sub.description.username}} пока ничего про себя не написал
+		{% if sub.description.can_edit %}
+			{% include 'html/common/edit_description.html' with {
+				'label' : 'Рассказать о себе', 
+				'text' : ''
+			} %}
+		{% endif %}	
 	{% endif %}
 </div>
