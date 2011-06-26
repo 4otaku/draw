@@ -30,12 +30,12 @@ class Upload_Input extends Input implements Plugins
 		$info = Globals::user_info();
 		
 		$this->user_id = $info['id'];
+		$alias = Meta_Author::get_alias_by_name($info['username']);
 		
 		$image_data = file_get_contents($query['image']);
 		
-		$this->save($image_data, $info['username']);
+		$this->save($image_data, $alias);		
 		
-		$alias = Meta_Author::get_alias_by_name($info['username']);
 		$this->redirect_address = '/gallery/author/'.$alias.'/';
 	}
 	
