@@ -12,11 +12,14 @@ class Index_Output extends Output
 		
 		$this->get_latest_art();
 		
-		$this->items['comments'] = Comments_Output::latest(5, 2);
+		$this->items['comments'] = Comments_Output::latest(
+			Config::settings('latest_comments', 'block_limit'), 
+			Config::settings('latest_comments', 'comment_limit')
+		);
 	}
 	
 	protected function get_latest_art () {	
-		$latest_art_count = Config::template('latest_art_count');
+		$latest_art_count = Config::settings('latest_art', 'count');
 		
 		$latest = Database::get_table(
 			'art',
@@ -25,10 +28,15 @@ class Index_Output extends Output
 		);
 		
 		$galleries = array();
+		$image_limit = Config::settings('latest_art', 'image_limit');
+		$galleries_limit =Config::settings('latest_art', 'galleries_limit');
 		
 		foreach ($latest as $art) {
 			
-			if (count($galleries[$art['user_id']]['images']) > 2) {
+			if (
+				!empty($galleries[$art['user_id']]['images']) &&
+				count($galleries[$art['user_id']]['images']) >= $image_limit
+			) {
 				continue;
 			}
 			
@@ -38,7 +46,7 @@ class Index_Output extends Output
 			);
 		}
 		
-		$galleries = array_slice($galleries, 0, 6, true);
+		$galleries = array_slice($galleries, 0, $galleries_limit, true);
 		
 		$users = Database::get_vector(
 			'user', 
