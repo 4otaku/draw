@@ -22,7 +22,7 @@ class Art_Input extends Input implements Plugins
 		
 		$update = array('last_draw' => Database::unix_to_date());
 		
-		Database::update('user', $user_id, $update);
+		Database::update('user', 'id = ?', $update, $user_id);
 	}
 	
 	protected static function get_base_meta ($username) {

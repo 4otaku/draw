@@ -7,7 +7,7 @@ class Authors_Output extends Output_Main implements Plugins
 		$names = Database::set_counter()->get_vector(
 			'user', 
 			array('id', 'username'), 
-			'last_draw != "0000-00-00 00:00:00" order by last_draw desc'
+			"last_draw != '0000-00-00 00:00:00' order by last_draw desc limit $start, $perpage"
 		);
 
 		$authors = Database::get_full_table(
