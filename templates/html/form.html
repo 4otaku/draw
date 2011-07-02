@@ -1,0 +1,45 @@
+{% extends "html/base.html" %}
+
+{% block header %}
+	<tr>
+		<td valign="top">
+			<div class="start_drawing_container margin20">	
+				<div class="loginform margin10">
+					Пожалуйста, подождите. 
+					<img src="/templates/images/loading.gif" />
+				</div>
+				<div class="start_drawing">	
+					<form enctype="multipart/form-data" method="post" action="/draw/">				
+						<div class="margin10">
+							Редактор: 
+							<select name="mode" class="mode">
+								<option value="shi_painter" class="themed sized">Shi Painter</option>
+								<option value="shi_painter_pro" class="themed sized">Shi Painter Pro</option>
+								<option value="pixlr_editor" class="sized">Pixlr Editor</option>
+							</select>
+						</div>
+						<div class="margin10 theme_field">
+							Тема оформления: 					
+							<select name="theme">
+								<option value="0">Стандартная</option>
+								{% for id, name in items.themes %}
+									<option value="{{id}}">{{name}}</option>
+								{% endfor %}
+							</select>					
+						</div>
+						<div class="margin10 size_field">	
+							Ширина картинки: <input type="text" name="width" value="400" size="5"> 
+						</div>
+						<div class="margin10 size_field">
+							Высота картинки: <input type="text" name="height" value="400" size="5"> 
+						</div>
+						<input type="submit" value="Начать рисовать" />
+					</form>
+				</div>
+			</div>
+		</td>
+	</tr>	
+{% endblock %}
+
+{% block content %}
+{% endblock %}
