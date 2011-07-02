@@ -10,6 +10,10 @@ class Art_Output extends Output_Main implements Plugins
 		
 		$this->test_area($art['area']);
 		
+		if ($art['resized']) {
+			$this->flags['resized'] = true;
+		}
+		
 		$this->items[$id] = new Item_Art($art);
 		
 		$meta = Meta::prepare_meta(array($id => $art['meta']));

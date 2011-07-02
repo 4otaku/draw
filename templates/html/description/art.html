@@ -18,10 +18,18 @@
 		Ширина: 
 		{{sub.description.data.width}} пикселей.
 	</div>
-	<div class="margin10">		
+	<div class="margin10">
 		Высота: 
 		{{sub.description.data.height}} пикселей.
 	</div>
+	{% if flag.resized %}
+		<div class="margin10">
+			Изображение было уменьшено. 
+			<a href="#" class="disabled toggle_resize">
+				Увеличить
+			</a>.
+		</div>
+	{% endif %}
 	<div class="margin10">		
 		Вес: 
 		{{sub.description.data.weight}}.

@@ -60,6 +60,14 @@ function toggle_options(object) {
 		$(".size_field").hide();
 	}	
 }
+	
+$("a.reply").live('click', function(event){  
+	event.preventDefault();
+	$('#reply-'+$(this).attr('rel')).append($('#comments-form'));
+	$("#comment-parent").val($(this).attr('rel'));	
+	$("#comment-main").show();
+	$(".commentsh2").hide();
+});	
 
 $(document).ready(function(){
 	$(".checked").attr('checked', true);
@@ -90,13 +98,17 @@ $(document).ready(function(){
 		});
 	}
 	
-	$("a.reply").click(function(event){  
-		event.preventDefault();
-		$('#reply-'+$(this).attr('rel')).append($('#comments-form'));
-		$("#comment-parent").val($(this).attr('rel'));	
-		$("#comment-main").show();
-		$(".commentsh2").hide();
-	});	
+	$(".toggle_resize").live('click', function(event){
+		if ($(".gallery_resized_image:visible").length > 0) {
+			$(".gallery_resized_image").hide();
+			$(".gallery_full_image").show();
+			$(this).html("Уменьшить");
+		} else {
+			$(".gallery_full_image").hide();
+			$(".gallery_resized_image").show();
+			$(this).html("Увеличить");			
+		}
+	});		
 	
 	$(".edit_description button.show_form").click(function(){
 		$(".edit_field").toggle();

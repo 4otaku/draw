@@ -2,12 +2,13 @@
 
 class Art_Input extends Input implements Plugins
 {
-	public static function save ($filename, $username, $user_id = 0, $timer = false) {
+	public static function save ($filename, $username, $resized, $user_id = 0, $timer = false) {
 		
 		$sizes = getimagesize($filename);
 		
 		$insert = array(
 			'name' => pathinfo($filename, PATHINFO_FILENAME),
+			'resized' => $resized,
 			'width' => $sizes[0],
 			'height' => $sizes[1],
 			'weight' => filesize($filename),

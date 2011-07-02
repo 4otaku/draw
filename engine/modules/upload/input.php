@@ -60,6 +60,7 @@ class Upload_Input extends Input implements Plugins
 		$this->test_upload_dirs('gallery', $this->user_id, 'large_thumbnail');
 		$this->test_upload_dirs('gallery', $this->user_id, 'thumbnail');		
 		
+		$resized = 0;
 		$resized_settings = Config::image('resized');
 		$large_thumbnail_settings = Config::image('large_thumbnail');
 		$thumbnail_settings = Config::image('thumbnail');
@@ -70,6 +71,11 @@ class Upload_Input extends Input implements Plugins
 			$image->get_width() > $resized_settings['width'] ||
 			$image->get_height() > $resized_settings['height']
 		) {
+			$resized = min(
+				$resized_settings['width'] / $image->get_width(),
+				$resized_settings['height'] / $image->get_height()
+			);			
+			
 			$image->target($save_resized)->scale(
 				array(
 					$resized_settings['width'], 
@@ -99,7 +105,7 @@ class Upload_Input extends Input implements Plugins
 			true
 		);
 		
-		Art_Input::save($save_full, $username, $this->user_id, $timer);
+		Art_Input::save($save_full, $username, $resized, $this->user_id, $timer);
 	}
 	
 	protected function parse_shi_paint ($input) {

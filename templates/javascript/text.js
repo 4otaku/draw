@@ -31,13 +31,5 @@ $(document).ready(function(){
 		else $("#textfield").val($("#textfield").val() + start + getimage + end);
 		return false;
 	});	
-	
-	$("#comment-main a").click(function(event){  
-		event.preventDefault();
-		$('#comments').append($('#comments-field'));
-		$("#comment-parent").val('0');
-		$("#comment-main").hide();
-		$(".commentsh2").show();
-	});
 
 });

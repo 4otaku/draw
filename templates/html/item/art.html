@@ -3,23 +3,15 @@
 		<tr>
 			<td class="booru_main"> 				
 				{% if item.resized %}
-					<div class="clear margin20 mini-shell art-bar">
-						<a href="#" class="disabled art_size_toggle" rel="{{item.extension}}">
-							Показать в полном размере
-						</a> ({{item.width}}x{{item.height}}px; {{item.weight}} {{item.weight_type}}). 
-						<a href="#" class="disabled booru_show_full_always">
-							 Всегда показывать в полном размере
-						</a>. 
-						<a href="/download/art/{{id}}" target="_blank">
-							 Скачать
-						</a>.												
-					</div>								
-					<div class="art_toggle image">
-						<img src="{{domain}}/images/art/resized/{{item.md5}}.jpg">
+					<div class="gallery_resized_image">
+						<img src="/images/gallery/{{item.user_id}}/resized/{{item.name}}.jpg" />
+					</div>
+					<div class="hidden gallery_full_image">
+						<img src="/images/gallery/{{item.user_id}}/full/{{item.name}}.{{item.extension}}" />
 					</div>
 				{% endif %}
 				<div class="{% if item.resized %}hidden relative{% else %}image{% endif %} art_toggle">						
-					<img src="/images/gallery/{{item.user_id}}/full/{{item.name}}.{{item.extension}}">
+					<img src="/images/gallery/{{item.user_id}}/full/{{item.name}}.{{item.extension}}" />
 				</div>
 			</td>
 		 </tr>
